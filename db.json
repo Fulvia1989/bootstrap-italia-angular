@@ -3,11 +3,42 @@
       { "id": "1", "title": "a title", "views": 100 },
       { "id": "2", "title": "another title", "views": 200 }
     ],
-    "comments": [
-      { "id": "1", "text": "a comment about post 1", "postId": "1" },
-      { "id": "2", "text": "another comment about post 1", "postId": "1" }
-    ],
-    "profile": {
-      "name": "typicode"
-    }
+    "progetti": [
+      {
+        "id":1,
+        "codice":"ARS01_005",
+        "programma":"PON14-20",
+        "fondo": "FESR",
+        "area":"Aereospazio",
+        "output":"Navicella Spaziale",
+        "finanziamento": 200000,
+        "beneficiari":[
+          {"nome":"Leonardo S.p.A.", "ruolo":"partner", "email":"info@leonardo.it","telefono":"06875128","contributo":"Concontributo Realizzativo"},
+          {"nome":"Cineca", "ruolo":"partner", "email":"info@cineca.it","telefono":"06125489","contributo":"Concontributo Realizzativo"}
+        ]
+      },
+      {
+        "id":2,
+        "codice":"ARS68_758",
+        "programma":"PON14-20",
+        "fondo": "FSE",
+        "area":"Energia",
+        "output":"Pannelli Solari",
+        "finanziamento": 50000,
+        "beneficiari":[
+          {"nome":"Tim S.p.A.", "ruolo":"partner", "email":"info@tim.it","telefono":"02865734","contributo":"Concontributo Realizzativo"}
+
+        ]
+      },
+      {
+        "id":3,
+        "codice":"ARS84_683",
+        "programma":"PON14-20",
+        "fondo": "FSE REACT-EU",
+        "area":"Agrifood",
+        "output":"trattore a idrogeno",
+        "finanziamento": 45000,
+        "beneficiari":[]
+      }
+    ]
   }

@@ -1,17 +1,36 @@
-.dark{
-    background-color: var(--dark-primary);
-    color: white;
-}
+
+
 .hidden-row{
     
     border-color:transparent ;
     td{
         padding: 0;
     }
+    
 }
-td{
+
+td,th{
     vertical-align: middle;
+}
+th{
+    button{
+        transition: all 0.3s;
+    }
+    button[aria-expanded=true]{
+        transform: rotateZ(90deg);
+        // it-icon{
+        //     
+        // }
+    }
 }
 .icon-button{
     padding: 0.2rem;
+    
+    it-icon{
+        box-sizing: border-box;
+    }
+
+    &:focus{
+        outline: 0;
+    }
 }

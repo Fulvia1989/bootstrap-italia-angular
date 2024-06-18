@@ -1,6 +1,10 @@
-$dark-primary: #240053;
+$secondary: #240053;
+$primary: #027DB7;
+$dark:#14002e;
 
 :root{
-    --dark-primary: #{$dark-primary};
+    --secondary: #{$secondary};
+    --primary: #{$primary};
+    --dark: #{$dark};
     
 }

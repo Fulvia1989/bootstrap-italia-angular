@@ -1,3 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 @import "bootstrap-italia/src/scss/bootstrap-italia";
 @import url('./themes/colors.scss');
+
+
+.dark-background{
+    background-color: var(--dark);
+    color: white;
+}
+.primary-background{
+    background-color: var(--primary);
+    color:white;
+}
+.secondary-background{
+    background-color: var(--secondary);
+    color: white;
+}

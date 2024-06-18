@@ -18,8 +18,6 @@ export class AppComponent {
   ){}
 
   ngOnInit(){
-    this.apiService.testGet().subscribe(res => {
-      console.log(res);
-    })
+ 
   }
 }

@@ -1,54 +1,79 @@
 <h2>Progetti</h2>
-<table class="table">
-    <thead class="dark">
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Nome</th>
-        <th scope="col">Cognome</th>
-        <th scope="col">Username</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">
-            <button class="btn icon-button" type="button" 
-            data-bs-toggle="collapse" 
-            data-bs-target="#multiCollapseExample2" 
-            aria-expanded="false" 
-            aria-controls="multiCollapseExample2">
-            <it-icon name="chevron-right"></it-icon>
-        </button>
-
-        </th>
-        <td>Mario</td>
-        <td>Verdi</td>
-        <td>mario.verdi</td>
-
-        
-      </tr>
-      <tr class="hidden-row">
-        <td colspan="12">
-
-            <div class="collapse " id="multiCollapseExample2">
-              <div class="card card-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-              </div>
-            </div>
-        </td>
-      </tr>
- 
-  
-      <tr>
-        <th scope="row">2</th>
-        <td>Francesco</td>
-        <td>Bianchi</td>
-        <td>	francesco.bianchi</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Alessandro</td>
-        <td>Rossi</td>
-        <td>alessandro.rossi</td>
-      </tr>
-    </tbody>
-  </table>
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead class="secondary-background">
+          <tr>
+            <th scope="col" class="col-1">#</th>
+            <th scope="col" class="col-1">Programma</th>
+            <th scope="col" class="col-2">Fondo</th>
+            <th scope="col" class="col-1">Progetto</th>
+            <th scope="col" class="col-2">Area Scientifica</th>
+            <th scope="col" class="col-2">Output</th>
+            <th scope="col" class="col-3">Finanziamento Ricevuto</th>
+          </tr>
+        </thead>
+        <tbody>
+            @for (progetto of progetti; track $index) {
+    
+                <tr>
+                  <th scope="row">
+                    <button class="btn icon-button" type="button" 
+                      data-bs-toggle="collapse" 
+                      attr.data-bs-target="#{{progetto.codice}}" 
+                      aria-expanded="false" 
+                      attr.aria-controls="{{progetto.codice}}">
+                      <it-icon name="chevron-right"></it-icon>
+                  </button>
+          
+                  </th>
+                  <td>{{progetto.programma}}</td>
+                  <td>{{progetto.fondo}}</td>
+                  <td>{{progetto.area}}</td>
+                  <td>{{progetto.codice}}</td>
+                  <td>{{progetto.output}}</td>
+                  <td>{{progetto.finanziamento}}</td>
+          
+                  
+                </tr>
+                <tr class="hidden-row">
+                 
+                  <td class="col-12" colspan="12">
+          
+                      <div class="collapse" id="{{progetto.codice}}">
+                        <table class="table table-sm table-striped">
+                            <thead>
+                              <tr class="dark-background"> 
+                                <th class="col-12" colspan="12">Elenco Beneficiari</th>
+                              </tr>
+                              <tr>
+                                <th scope="col">Beneficiario</th>
+                                <th scope="col">Ruolo</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Telefono</th>
+                                <th scope="col">Contributo Realizzato</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              @for (beneficiario of progetto.beneficiari; track $index) {
+                                <tr>
+                                    <td>{{beneficiario.nome}}</td>
+                                    <td>{{beneficiario.ruolo}}</td>
+                                    <td>{{beneficiario.email}}</td>
+                                    <td>{{beneficiario.telefono}}</td>
+                                    <td>{{beneficiario.contributo}}</td>
+                                </tr>
+                              }
+                            </tbody>
+                          </table>
+                        <!-- <div class="card card-body">
+                          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                        </div> -->
+                      </div>
+                  </td>
+                </tr>
+            }
+     
+            
+        </tbody>
+      </table>
+</div>

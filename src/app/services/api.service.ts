@@ -40,9 +40,9 @@ export class ApiService {
       .get(`${this.baseUrl}/${resourceName}`, options)
   }
 
-  testGet(){
-    return this.get('/posts').pipe(
-      tap(()=> console.log('chiamata test')),
+  getProgetti(){
+    return this.get('/progetti').pipe(
+      tap(()=> console.log('chiamata progetti')),
       catchError(err =>{
         return throwError(()=> err || 'Server error');
 
