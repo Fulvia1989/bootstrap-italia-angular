@@ -1,0 +1,13 @@
+{
+  "/api": {
+    "target": "http://localhost:8081",
+    "changeOrigin": true
+  },
+  "/js-server": {
+    "target": "http://localhost:3000",
+    "pathRewrite": {
+      "^/js-server": ""
+    },
+    "changeOrigin": true
+  }
+}

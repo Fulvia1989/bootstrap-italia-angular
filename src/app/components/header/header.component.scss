@@ -1,0 +1,73 @@
+
+::ng-deep .it-header-center-wrapper{
+    background: white!important;
+}
+::ng-deep .it-brand-wrapper a{
+    color: #240053!important;    
+}
+::ng-deep .it-right-zone{
+    color: #240053!important;
+}
+.top-header{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: #240053;
+    color: white;
+    padding: 0.3rem;
+    h3{
+        font-size: medium;
+        margin: 0;
+    }
+    
+    .right-zone{
+        margin-left: auto;
+    }
+    .info{
+        padding: 0.3rem 0.5rem;
+        display: flex;
+        align-items: center;
+        border-left: 1px solid white;
+        border-right: 1px solid white;
+        span{
+            font-weight: bold;
+            margin: 0 0.3rem;
+        }
+    }
+    .rounded-icon{
+        width: 1.5em;
+        height: 1.5em;
+        border-radius: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: hsl(0, 0%, 100%);
+    }
+}
+.flex-column{
+    flex-direction: column;
+}
+.custom-avatar{
+    width: 3rem;
+    height: 3rem;
+    background-color: white;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+
+    img{
+        width: 70%;
+        height: 70%;
+    }
+    &.small{
+        width: 3rem;
+        height: 2.5rem;
+        background: url('../../../assets/mur_logo_bianco.svg');
+        background-size: cover;
+
+       
+    }
+}
