@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { UserService } from '../../services/user.service';
+import { ItIconComponent } from 'design-angular-kit';
 
 @Component({
   selector: 'app-lista-progetti',
   standalone: true,
-  imports: [],
+  imports: [ItIconComponent],
   templateUrl: './lista-progetti.component.html',
   styleUrl: './lista-progetti.component.scss'
 })

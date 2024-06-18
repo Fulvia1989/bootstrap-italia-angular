@@ -1,0 +1,17 @@
+.dark{
+    background-color: var(--dark-primary);
+    color: white;
+}
+.hidden-row{
+    
+    border-color:transparent ;
+    td{
+        padding: 0;
+    }
+}
+td{
+    vertical-align: middle;
+}
+.icon-button{
+    padding: 0.2rem;
+}

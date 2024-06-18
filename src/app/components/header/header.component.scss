@@ -3,16 +3,16 @@
     background: white!important;
 }
 ::ng-deep .it-brand-wrapper a{
-    color: #240053!important;    
+    color: var(--dark-primary)!important;    
 }
 ::ng-deep .it-right-zone{
-    color: #240053!important;
+    color: var(--dark-primary)!important;
 }
 .top-header{
     width: 100%;
     display: flex;
     align-items: center;
-    background-color: #240053;
+    background-color: var(--dark-primary);
     color: white;
     padding: 0.3rem;
     h3{
