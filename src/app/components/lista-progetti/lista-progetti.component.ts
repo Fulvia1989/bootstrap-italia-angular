@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { ItIconComponent } from 'design-angular-kit';
 import { ApiService } from '../../services/api.service';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-lista-progetti',
   standalone: true,
-  imports: [ItIconComponent],
+  imports: [ItIconComponent,CurrencyPipe],
   templateUrl: './lista-progetti.component.html',
   styleUrl: './lista-progetti.component.scss'
 })

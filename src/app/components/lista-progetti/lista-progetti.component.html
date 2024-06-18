@@ -1,4 +1,9 @@
-<h2>Progetti</h2>
+<div class="toolbar d-inline-flex align-items-center">
+  <h2>Progetti</h2>
+  <button class="btn secondary-background ms-auto">
+    Aggiungi Progetto
+  </button>
+</div>
 <div class="table-responsive">
     <table class="table table-hover">
         <thead class="secondary-background">
@@ -31,7 +36,7 @@
                   <td>{{progetto.area}}</td>
                   <td>{{progetto.codice}}</td>
                   <td>{{progetto.output}}</td>
-                  <td>{{progetto.finanziamento}}</td>
+                  <td style="text-align: right;">{{progetto.finanziamento  |  currency:'EUR':'symbol':'4.2-2':'it-IT'}}</td>
           
                   
                 </tr>
@@ -40,34 +45,39 @@
                   <td class="col-12" colspan="12">
           
                       <div class="collapse" id="{{progetto.codice}}">
-                        <table class="table table-sm table-striped">
-                            <thead>
-                              <tr class="dark-background"> 
-                                <th class="col-12" colspan="12">Elenco Beneficiari</th>
-                              </tr>
-                              <tr>
-                                <th scope="col">Beneficiario</th>
-                                <th scope="col">Ruolo</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Telefono</th>
-                                <th scope="col">Contributo Realizzato</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              @for (beneficiario of progetto.beneficiari; track $index) {
-                                <tr>
-                                    <td>{{beneficiario.nome}}</td>
-                                    <td>{{beneficiario.ruolo}}</td>
-                                    <td>{{beneficiario.email}}</td>
-                                    <td>{{beneficiario.telefono}}</td>
-                                    <td>{{beneficiario.contributo}}</td>
+                        @if(progetto.beneficiari.length){
+
+                          <table class="table table-sm table-striped">
+                              <thead>
+                                <tr class="dark-background"> 
+                                  <th class="col-12" colspan="12">Elenco Beneficiari</th>
                                 </tr>
-                              }
-                            </tbody>
-                          </table>
-                        <!-- <div class="card card-body">
-                          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-                        </div> -->
+                                <tr>
+                                  <th scope="col">Beneficiario</th>
+                                  <th scope="col">Ruolo</th>
+                                  <th scope="col">Email</th>
+                                  <th scope="col">Telefono</th>
+                                  <th scope="col">Contributo Realizzato</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                @for (beneficiario of progetto.beneficiari; track $index) {
+                                  <tr>
+                                      <td>{{beneficiario.nome}}</td>
+                                      <td>{{beneficiario.ruolo}}</td>
+                                      <td>{{beneficiario.email}}</td>
+                                      <td>{{beneficiario.telefono}}</td>
+                                      <td>{{beneficiario.contributo}}</td>
+                                  </tr>
+                                }
+                              </tbody>
+                            </table>
+                        }@else {
+
+                          <div class="card card-body">
+                            Lista vuota                
+                          </div>
+                        }
                       </div>
                   </td>
                 </tr>
