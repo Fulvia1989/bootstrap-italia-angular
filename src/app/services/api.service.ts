@@ -3,13 +3,13 @@ import {HttpClient, HttpContext, HttpHeaders, HttpParams} from '@angular/common/
 import { Observable, catchError, tap, throwError } from 'rxjs';
 
 export interface HttpOptions {
-  headers?: HttpHeaders; 
-  context?: HttpContext; 
-  observe?: "body" | undefined; 
-  params?:  HttpParams; 
-  reportProgress?: boolean; 
-  responseType?:  "json" | undefined; 
-  withCredentials?: boolean; 
+  headers?: HttpHeaders;
+  context?: HttpContext;
+  observe?: "body" | undefined;
+  params?:  HttpParams;
+  reportProgress?: boolean;
+  responseType?:  "json" | undefined;
+  withCredentials?: boolean;
 }
 
 @Injectable({
@@ -43,6 +43,28 @@ export class ApiService {
   getProgetti(){
     return this.get('/progetti').pipe(
       tap(()=> console.log('chiamata progetti')),
+      catchError(err =>{
+        return throwError(()=> err || 'Server error');
+
+      })
+    )
+  }
+
+
+  getListaProgrammi(){
+    return this.get('/listaProgrammi').pipe(
+      tap(()=> console.log('chiamata programmi')),
+      catchError(err =>{
+        return throwError(()=> err || 'Server error');
+
+      })
+    )
+  }
+
+  getLista( url: string ,programmaId: string){
+    console.log(programmaId)
+    return this.get(`/${url}`).pipe(
+      tap(()=> console.log('chiamata fondi')),
       catchError(err =>{
         return throwError(()=> err || 'Server error');
 
