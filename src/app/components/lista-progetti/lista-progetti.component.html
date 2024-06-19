@@ -1,6 +1,6 @@
 <div class="toolbar d-inline-flex align-items-center">
   <h2>Progetti</h2>
-  <button class="btn secondary-background ms-auto">
+  <button class="btn secondary-background ms-auto" (click)="aggiungiProgetto()">
     Aggiungi Progetto
   </button>
 </div>
@@ -19,17 +19,17 @@
         </thead>
         <tbody>
             @for (progetto of progetti; track $index) {
-    
+
                 <tr>
                   <th scope="row">
-                    <button class="btn icon-button" type="button" 
-                      data-bs-toggle="collapse" 
-                      attr.data-bs-target="#{{progetto.codice}}" 
-                      aria-expanded="false" 
+                    <button class="btn icon-button" type="button"
+                      data-bs-toggle="collapse"
+                      attr.data-bs-target="#{{progetto.codice}}"
+                      aria-expanded="false"
                       attr.aria-controls="{{progetto.codice}}">
                       <it-icon name="chevron-right"></it-icon>
                   </button>
-          
+
                   </th>
                   <td>{{progetto.programma}}</td>
                   <td>{{progetto.fondo}}</td>
@@ -37,19 +37,19 @@
                   <td>{{progetto.codice}}</td>
                   <td>{{progetto.output}}</td>
                   <td style="text-align: right;">{{progetto.finanziamento  |  currency:'EUR':'symbol':'4.2-2':'it-IT'}}</td>
-          
-                  
+
+
                 </tr>
                 <tr class="hidden-row">
-                 
+
                   <td class="col-12" colspan="12">
-          
+
                       <div class="collapse" id="{{progetto.codice}}">
                         @if(progetto.beneficiari.length){
 
                           <table class="table table-sm table-striped">
                               <thead>
-                                <tr class="dark-background"> 
+                                <tr class="dark-background">
                                   <th class="col-12" colspan="12">Elenco Beneficiari</th>
                                 </tr>
                                 <tr>
@@ -75,15 +75,15 @@
                         }@else {
 
                           <div class="card card-body">
-                            Lista vuota                
+                            Lista vuota
                           </div>
                         }
                       </div>
                   </td>
                 </tr>
             }
-     
-            
+
+
         </tbody>
       </table>
 </div>
