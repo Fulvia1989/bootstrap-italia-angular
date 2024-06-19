@@ -25,6 +25,9 @@ th{
 }
 .icon-button{
     padding: 0.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     
     it-icon{
         box-sizing: border-box;

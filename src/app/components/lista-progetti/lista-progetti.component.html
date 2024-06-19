@@ -14,7 +14,8 @@
             <th scope="col" class="col-1">Progetto</th>
             <th scope="col" class="col-2">Area Scientifica</th>
             <th scope="col" class="col-2">Output</th>
-            <th scope="col" class="col-3">Finanziamento Ricevuto</th>
+            <th scope="col" class="col-2">Finanziamento Ricevuto</th>
+            <th scope="col" class="col-1">Azioni</th>
           </tr>
         </thead>
         <tbody>
@@ -36,7 +37,17 @@
                   <td>{{progetto.area}}</td>
                   <td>{{progetto.codice}}</td>
                   <td>{{progetto.output}}</td>
-                  <td style="text-align: right;">{{progetto.finanziamento  |  currency:'EUR':'symbol':'4.2-2':'it-IT'}}</td>
+                  <td style="text-align: center;">{{progetto.finanziamento  |  currency:'EUR':'symbol':'4.2-2':'it-IT'}}</td>
+                  <td>
+                    <div class="buttons d-flex align-item-center justify-content-between">
+                      <button class="btn icon-button">
+                        <it-icon size="sm" name="pencil"></it-icon>
+                      </button>
+                      <button  class="btn icon-button ">
+                        <it-icon size="sm" name="file-video"></it-icon>
+                      </button>
+                    </div>
+                  </td>
           
                   
                 </tr>
