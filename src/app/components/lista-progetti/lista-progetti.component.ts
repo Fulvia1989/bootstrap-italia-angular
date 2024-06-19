@@ -3,6 +3,7 @@ import { UserService } from '../../services/user.service';
 import { ItIconComponent } from 'design-angular-kit';
 import { ApiService } from '../../services/api.service';
 import { CurrencyPipe } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lista-progetti',
@@ -16,7 +17,8 @@ export class ListaProgettiComponent {
 
   constructor(
     private userService: UserService,
-    private apiService: ApiService
+    private apiService: ApiService,
+    private router : Router
   ){}
 
   ngOnInit(){
@@ -28,6 +30,10 @@ export class ListaProgettiComponent {
       this.progetti =res;
     }
    )
+  }
+
+  aggiungiProgetto(){
+    this.router.navigateByUrl('/form-progetto');
   }
 
 }

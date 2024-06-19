@@ -1,0 +1,24 @@
+
+
+::ng-deep .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+  background-color: var(--secondary);
+    color: white;
+}
+
+::ng-deep .nav-tabs .nav-link, .nav-tabs .nav-item.show .nav-link {
+  background-color: var(--secondary);
+    color: grey;
+    &:hover{
+      color: white;
+    }
+}
+
+.btn-outline {
+  border: 1px solid var(--secondary);
+  border-radius: var(--bs-btn-border-radius);;
+  &:hover{
+    background-color: whitesmoke;
+  }
+}
+
+
