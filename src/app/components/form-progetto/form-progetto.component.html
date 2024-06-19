@@ -8,17 +8,16 @@
       </button>
     </div>
     <div class="col col-sm-8 col-md-8"> <h2 class="text-primary">Aggiungi / Modifica Progetto</h2> </div>
-    <div class="col col-sm-4 col-md-2">
+    <!-- <div class="col col-sm-4 col-md-2">
       <button  class="btn secondary-background ms-auto" (click)="conferma()">
         Conferma
       </button>
-    </div>
+    </div> -->
   </div>
   <it-tab-container [auto]="true"  >
 
     <it-tab-item label="PROGRAMMA" id="PROGRAMMA" (click)="activeTab = 0" [active]="activeTab == 0"  >
-      <h4>PROGRAMMA</h4>
-      <p>Contenuto complesso <span itBadge="secondary">badge</span></p>
+      <tab-programma></tab-programma>
     </it-tab-item>
     <it-tab-item label="BENEFICIARI"  id="BENEFICIARI" (click)="activeTab = 1" [active]="activeTab == 1">
       <h4>BENEFICIARI</h4>

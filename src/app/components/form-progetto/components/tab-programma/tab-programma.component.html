@@ -1,0 +1,96 @@
+<form [formGroup]="form" (submit)="submit()">
+  <div class="container">
+    <div class="row my-3">
+      <div class="col-md-2 offset-md-2">
+        <p class="fw-semibold mb-0 pt-2">Programma*</p>
+      </div>
+      <div class="col-md-6">
+        <div class="text-center select-wrapper">
+          <select id="programma" formControlName="programma"  (change)="programmaSelected(form.controls['programma'].value)">
+            <option value="" disabled selected>Seleziona</option>
+            @for (item of programmaList; track item.id) {
+              <option [value]="item.id">{{item.descrizione}}</option>
+              }
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="row my-3">
+      <div class="col-md-2 offset-md-2">
+        <p class="fw-semibold mb-0 pt-2">Fondo*</p>
+      </div>
+      <div class="col-md-6">
+        <div class="text-center select-wrapper">
+          <select id="fondo" formControlName="fondo" (change)="fondoSelected(form.controls['fondo'].value)">
+            <option value='' disabled selected>Seleziona</option>
+            @for (item of fondoList; track item.id) {
+              <option [value]="item.id">{{item.descrizione}}</option>
+              }
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="row my-3">
+      <div class="col-md-2 offset-md-2">
+        <p class="fw-semibold mb-0 pt-2">Bando/Invito*</p>
+      </div>
+      <div class="col-md-6">
+        <div class="text-center select-wrapper">
+          <select id="bando" formControlName="bando">
+            <option value='' disabled selected>Seleziona</option>
+            @for (item of bandoList; track item.id) {
+              <option [value]="item.id">{{item.descrizione}}</option>
+              }
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="row my-3">
+      <div class="col-md-2 offset-md-2">
+        <p class="fw-semibold mb-0 pt-2">Progetto*</p>
+      </div>
+      <div class="col-md-6">
+        <div class="text-center">
+          <input type="text" id="progetto" formControlName="progetto">
+        </div>
+      </div>
+    </div>
+    <div class="row my-3">
+      <div class="col-md-2 offset-md-2">
+        <p class="fw-semibold mb-0 pt-2">Area Scientifica*</p>
+      </div>
+      <div class="col-md-6">
+        <div class="text-center select-wrapper">
+          <select id="areaScientifica" formControlName="areaScientifica">
+            <option value="" disabled selected>Seleziona</option>
+            <option value="Value 1">Opzione 1</option>
+            <option value="Value 2">Opzione 2</option>
+            <option value="Value 3">Opzione 3</option>
+            <option value="Value 4">Opzione 4</option>
+            <option value="Value 5">Opzione 5</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="row my-3">
+      <div class="col-md-2 offset-md-2">
+        <p class="fw-semibold mb-0 pt-2">Output Progetto*</p>
+      </div>
+      <div class="col-md-6">
+        <div class="text-center">
+          <input type="text" id="output" formControlName="output">
+        </div>
+      </div>
+    </div>
+    <div class="row my-3">
+      <div class="col-md-2 offset-md-2">
+        <p class="fw-semibold mb-0 pt-2">Finanziamento ricevuto (&euro;)*</p>
+      </div>
+      <div class="col-md-6">
+        <div class="text-center">
+          <input type="number" id="output" formControlName="finanziamento" [min]="0">
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

@@ -40,5 +40,50 @@
         "finanziamento": 45000,
         "beneficiari":[]
       }
+    ],
+    "listaProgrammi":[
+      {
+        "id":"1",
+        "descrizione":"PON14-20"
+      },
+      {
+        "id":"2",
+        "descrizione":"PON15-21"
+      }
+      ,
+      {
+        "id":"3",
+        "descrizione":"PON15-22"
+      }
+    ],
+    "fondi":[
+      {
+        "id":"1",
+        "descrizione":"Banca Italiana"
+      },
+      {
+        "id":"2",
+        "descrizione":"Fondi Personali"
+      }
+      ,
+      {
+        "id":"3",
+        "descrizione":"Banca Estera"
+      }
+    ],
+    "bandi":[
+      {
+        "id":"1",
+        "descrizione":"Bando 1"
+      },
+      {
+        "id":"2",
+        "descrizione":"Bando 2"
+      }
+      ,
+      {
+        "id":"3",
+        "descrizione":"Bando 3"
+      }
     ]
   }
