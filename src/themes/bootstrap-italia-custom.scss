@@ -1,0 +1,27 @@
+@import url('./colors.scss');
+// modifica completa del template: è possibile ricompilare la libreria modificando alcune variabili SCSS
+
+// Per l'override del colore $primary della palette in formato HSB (colore #FF3333 https://rgb.to/ff3333):
+$primary: #027DB7;
+//$primary: hsb($primary-h, $primary-s, $primary-b)
+$primary-h: 199;
+$primary-s:99;
+$primary-b:62;
+
+$secondary:#240053;
+$dark:#14002e;
+
+:root{
+    --secondary: #{$secondary};
+    --primary: #{$primary};
+    --dark: #{$dark};
+    
+}
+
+// Per l'override della famiglia di caratteri
+//$font-family-serif: 'Custom Font', Georgia, serif;
+//$font-family-sans-serif: 'Custom Font', Arial, Helvetica, sans-serif;
+//$font-family-monospace: 'Custom Font', 'Courier New', Courier, monospace;
+
+@import "bootstrap-italia/src/scss/bootstrap-italia";
+

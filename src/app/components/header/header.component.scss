@@ -1,13 +1,52 @@
 
-::ng-deep .it-header-center-wrapper{
-    background: white!important;
+nav{
+    .custom-avatar{
+        width: 4rem;
+        height: 4rem;
+        background-color: white;
+        border-radius: 50%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 1rem;
+    
+        img{
+            width: 70%;
+            height: 70%;
+        }
+        &.small{
+            width: 3rem;
+            height: 2.5rem;
+            background: url('../../../assets/mur_logo_bianco.svg');
+            background-size: cover;
+    
+           
+        }
+    }
+    .right-zone{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 1rem;
+        .search-box{
+           padding: 1rem;
+            width: 100%;
+        }
+    
+    }
+    ::ng-deep input[type=search]{
+     border: 2px solid var(--secondary)!important;
+     border-radius: 2rem;
+    }
+    ::ng-deep .autocomplete-icon{
+        border-radius: 50%!important;
+        padding: 0;
+        margin: 0 0.7rem;
+    
+    }
 }
-::ng-deep .it-brand-wrapper a{
-    color: var(--secondary)!important;    
-}
-::ng-deep .it-right-zone{
-    color: var(--secondary)!important;
-}
+
 .top-header{
     width: 100%;
     display: flex;
@@ -20,9 +59,7 @@
         margin: 0;
     }
     
-    .right-zone{
-        margin-left: auto;
-    }
+ 
     .info{
         padding: 0.3rem 0.5rem;
         display: flex;
@@ -34,6 +71,11 @@
             margin: 0 0.3rem;
         }
     }
+    .right-zone{
+        padding-top: 0;
+        margin-left: auto;
+    }
+     
     .rounded-icon{
         width: 1.5em;
         height: 1.5em;
@@ -42,32 +84,5 @@
         justify-content: center;
         align-items: center;
         background-color: hsl(0, 0%, 100%);
-    }
-}
-.flex-column{
-    flex-direction: column;
-}
-.custom-avatar{
-    width: 3rem;
-    height: 3rem;
-    background-color: white;
-    border-radius: 50%;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 1rem;
-
-    img{
-        width: 70%;
-        height: 70%;
-    }
-    &.small{
-        width: 3rem;
-        height: 2.5rem;
-        background: url('../../../assets/mur_logo_bianco.svg');
-        background-size: cover;
-
-       
     }
 }

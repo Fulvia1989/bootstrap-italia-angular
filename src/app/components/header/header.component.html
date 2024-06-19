@@ -17,53 +17,57 @@
         
     </div>
 </header>
-<it-header
-[light]="false"
-[showSearch]="false"
-[sticky]="true"
-[megamenu]="false"
-[showSlim]="false"
 
->
-<ng-container slimRightZone>
-    <ul style="display: flex;">
-        <li>
-          <a href="#" aria-label="Facebook" target="_blank">
-            <it-icon name="facebook"></it-icon>
+<nav class="navbar navbar-expand-lg bg-transparent">
+  <div class="container-fluid align-items-baseline">
+    <a class="navbar-brand d-flex" href="#">
+      <div class="custom-avatar" >
+        <img [src]="logoSrc"/>
+        <span class="visually-hidden">Logo researchitaly</span>
+      </div>
+      <div class="it-brand-text d-flex flex-column justify-content-center">
+          <div class="it-brand-title">RESEARCHITALY</div>
+          <div class="it-brand-tagline d-none d-md-block">Ricerca ed Innovazione a portata di click</div>
+      </div>
+    </a>
+    <button class="navbar-toggler shadow-none border-0" type="button" 
+    data-bs-toggle="collapse" 
+    data-bs-target="#navbarSupportedContent" 
+    aria-controls="navbarSupportedContent" 
+    aria-expanded="false" 
+    aria-label="Menu">
+      <it-icon name="burger"></it-icon>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    
+   
+        <!-- <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown
           </a>
-        </li>
-        <li>
-          <a href="#" aria-label="Github" target="_blank">
-            <it-icon name="github"></it-icon>
-          </a>
-        </li>
-        <li>
-          <a href="#" aria-label="Twitter" target="_blank">
-            <it-icon name="twitter"></it-icon>
-          </a>
-        </li>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li> -->
+
       </ul>
-</ng-container>
-<!-- <ul class="link-list" slimLinkList>
-    <li><a class="dropdown-item list-item" href="#">Link 1</a></li>
-    <li><a class="list-item active" href="#" aria-current="page">Link 2 (Attivo)</a></li>
-</ul> -->
-    <ng-container brand>
-        <a href="#">
-            <div class="custom-avatar" >
-                <img [src]="logoSrc"/>
-                <!-- <p aria-hidden="true">XL</p> -->
-                <span class="visually-hidden">Logo researchitaly</span>
-            </div>
-            <div class="it-brand-text">
-                <div class="it-brand-title">RESEARCHITALY</div>
-                <div class="it-brand-tagline d-none d-md-block">Ricerca ed Innovazione a portata di click</div>
-            </div>
-          
-        </a>
-    </ng-container>
-    <div class="it-socials d-none d-md-flex flex-column" rightZone>
+      <div class="right-zone">
         <it-language-switcher mode="nav"></it-language-switcher>
-        <p>Cerca</p>
+        <div class="search-box">
+
+          <it-autocomplete
+          class="custom-search"
+          label="Cerca nel sito"
+          forceShowLabel="false"
+          placeholder="Cerca"
+          [autocompleteData]="regioni"
+          (autocompleteSelectedEvent)="onAutocompleteSelected($event)" />  
+        </div>
+      </div>
     </div>
-</it-header>
+  </div>
+</nav>

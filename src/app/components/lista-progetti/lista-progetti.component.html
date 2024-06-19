@@ -1,6 +1,6 @@
 <div class="toolbar d-inline-flex align-items-center">
   <h2>Progetti</h2>
-  <button class="btn secondary-background ms-auto" (click)="aggiungiProgetto()">
+  <button class="btn btn-primary ms-auto" type="button" (click)="aggiungiProgetto()">
     Aggiungi Progetto
   </button>
 </div>
@@ -40,10 +40,10 @@
                   <td style="text-align: center;">{{progetto.finanziamento  |  currency:'EUR':'symbol':'4.2-2':'it-IT'}}</td>
                   <td>
                     <div class="buttons d-flex align-item-center justify-content-between">
-                      <button class="btn icon-button">
+                      <button type="button" class="btn btn-outline-secondary icon-button">
                         <it-icon size="sm" name="pencil"></it-icon>
                       </button>
-                      <button  class="btn icon-button ">
+                      <button type="button"  class="btn btn-outline-secondary icon-button ">
                         <it-icon size="sm" name="file-video"></it-icon>
                       </button>
                     </div>

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { UserService } from '../../services/user.service';
-import { ItIconComponent } from 'design-angular-kit';
+import { ItButtonDirective, ItIconComponent } from 'design-angular-kit';
 import { ApiService } from '../../services/api.service';
 import { CurrencyPipe } from '@angular/common';
 import { Router } from '@angular/router';
