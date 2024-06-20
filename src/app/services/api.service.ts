@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpContext, HttpHeaders, HttpParams} from '@angular/common/http';
 import { Observable, catchError, tap, throwError } from 'rxjs';
+import { Progetto } from '../shared/models/project.model';
 
 export interface HttpOptions {
   headers?: HttpHeaders;
@@ -31,17 +32,17 @@ export class ApiService {
     return headers;
   }
 
-  public get(
+  public get<T>(
     resourceName: string,
     options:HttpOptions = { }
-  ): Observable<any> {
+  ): Observable<T> {
     options.headers = options.headers ? options.headers :  this.getHeaders();
     return this.http
-      .get(`${this.baseUrl}/${resourceName}`, options)
+      .get<T>(`${this.baseUrl}/${resourceName}`, options)
   }
 
   getProgetti(){
-    return this.get('/progetti').pipe(
+    return this.get<Progetto[]>('/progetti').pipe(
       tap(()=> console.log('chiamata progetti')),
       catchError(err =>{
         return throwError(()=> err || 'Server error');
@@ -52,7 +53,7 @@ export class ApiService {
 
 
   getListaProgrammi(){
-    return this.get('/listaProgrammi').pipe(
+    return this.get<any>('/listaProgrammi').pipe(
       tap(()=> console.log('chiamata programmi')),
       catchError(err =>{
         return throwError(()=> err || 'Server error');
@@ -63,7 +64,7 @@ export class ApiService {
 
   getLista( url: string ,programmaId: string){
     console.log(programmaId)
-    return this.get(`/${url}`).pipe(
+    return this.get<any>(`/${url}`).pipe(
       tap(()=> console.log('chiamata fondi')),
       catchError(err =>{
         return throwError(()=> err || 'Server error');
