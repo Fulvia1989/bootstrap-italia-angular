@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup,  ReactiveFormsModule, Validators } from '@angular/forms';
 import { ApiService } from '../../../../services/api.service';
 
@@ -10,10 +10,6 @@ interface Progetto {
   areaScientifica: string;
   output: string;
   finanziamento: number;
-}
-interface Element {
-  id: string,
-  descrizione: string
 }
 
 @Component({
@@ -37,14 +33,12 @@ export class TabProgrammaComponent {
   }
   declare form: FormGroup;
 
-  programmaList : Element[] = [];
-  fondoList : Element[] = [];
-  bandoList : Element[] = [];
-  areaScientificaList : Element[] = [];
+  programmaList : string[] = [];
+  fondoList : string[] = [];
+  bandoList : string[] = [];
+  areaScientificaList : string[] = [];
   @Output() confermaEvt = new EventEmitter<any>();
   loading = false;
-
-
 
   constructor(
     private formBuilder : FormBuilder,
@@ -117,7 +111,10 @@ export class TabProgrammaComponent {
 
   submit(){
     this.loading = true;
-    this.confermaEvt.emit();
+    setTimeout(() => {
+      this.loading = false;
+      this.confermaEvt.emit();
+    }, 2000);
   }
 
 }
