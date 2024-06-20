@@ -3,7 +3,7 @@
 <div class="component">
   <div class="row mb-3">
     <div class="col col-sm-4 col-md-2">
-      <button  class="btn  ms-auto btn-outline" (click)="indietro()">
+      <button  class="btn  ms-auto btn-outline-secondary" (click)="indietro()">
         Indietro
       </button>
     </div>
@@ -17,13 +17,13 @@
   <it-tab-container [auto]="true"  >
 
     <it-tab-item label="PROGRAMMA" id="PROGRAMMA" (click)="activeTab = 0" [active]="activeTab == 0"  >
-      <tab-programma></tab-programma>
+      <tab-programma (confermaEvt)="programmaConfermatoEvt()"></tab-programma>
     </it-tab-item>
-    <it-tab-item label="BENEFICIARI"  id="BENEFICIARI" (click)="activeTab = 1" [active]="activeTab == 1">
+    <it-tab-item [disabled]="!programmaConfermato" label="BENEFICIARI"  id="BENEFICIARI" (click)="activeTab = 1" [active]="activeTab == 1">
       <h4>BENEFICIARI</h4>
       <p>Contenuto complesso <span itBadge="secondary">badge</span></p>
     </it-tab-item>
-    <it-tab-item label="MEDIA" id="MEDIA" (click)="activeTab = 2"  [active]="activeTab == 2">
+    <it-tab-item  [disabled]="!programmaConfermato" label="MEDIA" id="MEDIA" (click)="activeTab = 2"  [active]="activeTab == 2">
       <h4>MEDIA</h4>
       <p>Contenuto complesso <span itBadge="secondary">badge</span></p>
     </it-tab-item>

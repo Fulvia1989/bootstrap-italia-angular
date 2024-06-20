@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup,  ReactiveFormsModule, Validators } from '@angular/forms';
 import { ApiService } from '../../../../services/api.service';
 import { ProgettoForm } from '../../../../shared/models/project.model';
@@ -34,6 +34,8 @@ export class TabProgrammaComponent {
   fondoList : Element[] = [];
   bandoList : Element[] = [];
   areaScientificaList : Element[] = [];
+  @Output() confermaEvt = new EventEmitter<any>();
+  loading = false;
 
 
 
@@ -44,6 +46,7 @@ export class TabProgrammaComponent {
   ngOnInit(): void {
     this.form = this.buildForm();
     this.getProgramma();
+    this.getAreaScientifica();
 
   }
 
@@ -53,7 +56,7 @@ export class TabProgrammaComponent {
       fondo: [{value:this.progetto.fondo, disabled: true}, Validators.required],
       bando:[{value:this.progetto.bando, disabled: true}, Validators.required],
       progetto: [this.progetto.progetto, Validators.required],
-      areaScientifica: [{value:this.progetto.areaScientifica, disabled: true}, Validators.required],
+      areaScientifica: [this.progetto.areaScientifica, Validators.required],
       output: [this.progetto.output, Validators.required],
       finanziamento: [this.progetto.finanziamento, Validators.required]
 
@@ -62,7 +65,7 @@ export class TabProgrammaComponent {
   }
 
   getProgramma(){
-    this.apiService.getListaProgrammi().subscribe(
+    this.apiService.getLista('listaProgrammi').subscribe(
       res => {
         this.programmaList = res;
       }
@@ -74,7 +77,7 @@ export class TabProgrammaComponent {
     this.form.controls['fondo'].setValue('');
     this.fondoSelected('');
      if( value && value != ''){
-       this.apiService.getLista('fondi', value).subscribe(
+       this.apiService.getLista('listaFondi', value).subscribe(
          res => {
            this.form.controls['fondo'].enable();
            this.fondoList = res;
@@ -85,9 +88,10 @@ export class TabProgrammaComponent {
 
   fondoSelected(value : string){
     this.bandoList = [];
+    this.form.controls['bando'].setValue('');
     this.form.controls['bando'].disable();
      if( value && value != ''){
-       this.apiService.getLista('bandi',value).subscribe(
+       this.apiService.getLista('listaBandi',value).subscribe(
          res => {
            this.form.controls['bando'].enable();
            this.bandoList = res;
@@ -96,7 +100,17 @@ export class TabProgrammaComponent {
      }
   }
 
-  submit(){
-
+  getAreaScientifica(){
+    this.apiService.getLista('listaAreeScientifiche').subscribe(
+      res => {
+        this.areaScientificaList = res;
+      }
+     )
   }
+
+  submit(){
+    this.loading = true;
+    this.confermaEvt.emit();
+  }
+
 }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import {  ItBackButtonComponent, ItButtonDirective, ItTabContainerComponent, ItTabItemComponent } from 'design-angular-kit';
+import {  ItButtonDirective, ItTabContainerComponent, ItTabItemComponent } from 'design-angular-kit';
 import { TabProgrammaComponent } from './components/tab-programma/tab-programma.component';
 @Component({
   selector: 'app-form-progetto',
@@ -17,16 +17,16 @@ import { TabProgrammaComponent } from './components/tab-programma/tab-programma.
 export class FormProgettoComponent {
 
   activeTab=0
+  programmaConfermato = false;
   constructor(
     private router : Router
   ){}
 
-  conferma(){
-
-  }
-
   indietro(){
     this.router.navigateByUrl('/progetti');
+  }
 
+  programmaConfermatoEvt(){
+    this.programmaConfermato = true;
   }
 }

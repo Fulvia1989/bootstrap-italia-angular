@@ -1,4 +1,4 @@
-<form [formGroup]="form" (submit)="submit()">
+<form [formGroup]="form" (ngSubmit)="submit()">
   <div class="container">
     <div class="row my-3">
       <div class="col-md-2 offset-md-2">
@@ -11,7 +11,10 @@
             @for (item of programmaList; track item.id) {
               <option [value]="item.id">{{item.descrizione}}</option>
               }
-          </select>
+              </select>
+              @if(form.controls['programma'].errors && form.controls['programma'].touched){
+                <footer class="text-start fst-italic text-danger">Campo Obbligatorio</footer>
+              }
         </div>
       </div>
     </div>
@@ -27,6 +30,9 @@
               <option [value]="item.id">{{item.descrizione}}</option>
               }
           </select>
+          @if(form.controls['fondo'].errors && form.controls['fondo'].touched){
+            <footer class="text-start fst-italic text-danger">Campo Obbligatorio</footer>
+          }
         </div>
       </div>
     </div>
@@ -42,6 +48,9 @@
               <option [value]="item.id">{{item.descrizione}}</option>
               }
           </select>
+          @if(form.controls['bando'].errors && form.controls['bando'].touched){
+            <footer class="text-start fst-italic text-danger">Campo Obbligatorio</footer>
+          }
         </div>
       </div>
     </div>
@@ -52,6 +61,9 @@
       <div class="col-md-6">
         <div class="text-center">
           <input type="text" id="progetto" formControlName="progetto">
+          @if(form.controls['progetto'].errors && form.controls['progetto'].touched){
+            <footer class="text-start fst-italic text-danger">Campo Obbligatorio</footer>
+          }
         </div>
       </div>
     </div>
@@ -62,13 +74,14 @@
       <div class="col-md-6">
         <div class="text-center select-wrapper">
           <select id="areaScientifica" formControlName="areaScientifica">
-            <option value="" disabled selected>Seleziona</option>
-            <option value="Value 1">Opzione 1</option>
-            <option value="Value 2">Opzione 2</option>
-            <option value="Value 3">Opzione 3</option>
-            <option value="Value 4">Opzione 4</option>
-            <option value="Value 5">Opzione 5</option>
+            <option value='' disabled selected>Seleziona</option>
+            @for (item of areaScientificaList; track item.id) {
+              <option [value]="item.id">{{item.descrizione}}</option>
+              }
           </select>
+          @if(form.controls['areaScientifica'].errors && form.controls['areaScientifica'].touched){
+            <footer class="text-start fst-italic text-danger">Campo Obbligatorio</footer>
+          }
         </div>
       </div>
     </div>
@@ -79,6 +92,9 @@
       <div class="col-md-6">
         <div class="text-center">
           <input type="text" id="output" formControlName="output">
+          @if(form.controls['output'].errors && form.controls['output'].touched){
+            <footer class="text-start fst-italic text-danger">Campo Obbligatorio</footer>
+          }
         </div>
       </div>
     </div>
@@ -89,8 +105,25 @@
       <div class="col-md-6">
         <div class="text-center">
           <input type="number" id="output" formControlName="finanziamento" [min]="0">
+          @if(form.controls['finanziamento'].errors){
+          <footer class="text-start fst-italic text-danger">Questo campo è obbligatorio e deve essere uguale 0 o superiore.</footer>
+          }
         </div>
       </div>
+    </div>
+  </div>
+  <div class="row my-3">
+    <div class="col-md-8 offset-md-2 text-end">
+      @if(loading){
+          <div class="progress-spinner progress-spinner-double size-sm progress-spinner-active">
+            <div class="progress-spinner-inner"></div>
+            <div class="progress-spinner-inner"></div>
+            <span class="visually-hidden">Caricamento...</span>
+          </div>
+      }
+      <button  class="btn btn-secondary" type="submit" [disabled]="form.invalid || loading">
+          Conferma
+      </button>
     </div>
   </div>
 </form>

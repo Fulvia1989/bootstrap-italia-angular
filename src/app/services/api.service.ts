@@ -62,7 +62,7 @@ export class ApiService {
     )
   }
 
-  getLista( url: string ,programmaId: string){
+  getLista( url: string ,programmaId?: string){
     console.log(programmaId)
     return this.get<any>(`/${url}`).pipe(
       tap(()=> console.log('chiamata fondi')),

@@ -240,7 +240,7 @@
         "descrizione":"PON15-22"
       }
     ],
-    "fondi":[
+    "listaFondi":[
       {
         "id":"1",
         "descrizione":"Banca Italiana"
@@ -255,7 +255,7 @@
         "descrizione":"Banca Estera"
       }
     ],
-    "bandi":[
+    "listaBandi":[
       {
         "id":"1",
         "descrizione":"Bando 1"
@@ -268,6 +268,21 @@
       {
         "id":"3",
         "descrizione":"Bando 3"
+      }
+    ],
+    "listaAreeScientifiche":[
+      {
+        "id":"1",
+        "descrizione":"Microbiologia"
+      },
+      {
+        "id":"2",
+        "descrizione":"Robotica"
+      }
+      ,
+      {
+        "id":"3",
+        "descrizione":"Areospaziale"
       }
     ]
   }
