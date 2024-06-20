@@ -20,7 +20,7 @@ export class HeaderComponent {
   logoSrc = './assets/researchitaly-logo.png';
   logoMURsrc = './assets/mur_logo_bianco.svg';
 
-  regioni:AutocompleteItem[] = [{value:"Abruzzo",link:"#"},{value:"Basilicata",link:"#"},{value:"Calabria",link:"#"},{value:"Campania",link:"#"},{value:"Emilia Romagna",link:"#"},{value:"Friuli Venezia Giulia",link:"#"},{value:"Lazio",link:"#"},{value:"Liguria",link:"#"},{value:"Lombardia",link:"#"},{value:"Marche",link:"#"},{value:"Molise",link:"#"},{value:"Piemonte",link:"#"},{value:"Puglia",link:"#"},{value:"Sardegna",link:"#"},{value:"Sicilia",link:"#"},{value:"Toscana",link:"#"},{value:"Trentino Alto Adige",link:"#"},{value:"Umbria",link:"#"},{value:"Valle d’Aosta",link:"#"},{value:"Veneto",link:"#"}]
+  regioni:AutocompleteItem[] = [{value:"Progetti",link:"#"},{value:"Media",link:"#"},{value:"Beneficiari",link:"#"}]
 
   constructor(
     public userService:UserService
