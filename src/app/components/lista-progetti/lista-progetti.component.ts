@@ -4,17 +4,19 @@ import { ItButtonDirective, ItIconComponent } from 'design-angular-kit';
 import { ApiService } from '../../services/api.service';
 import { CurrencyPipe } from '@angular/common';
 import { Router } from '@angular/router';
+import { RoleDirective } from '../../shared/directives/role.directive';
+import { RolePipe } from '../../shared/pipes/role.pipe';
 
 @Component({
   selector: 'app-lista-progetti',
   standalone: true,
-  imports: [ItIconComponent,CurrencyPipe],
+  imports: [ItIconComponent,CurrencyPipe,RoleDirective,RolePipe],
   templateUrl: './lista-progetti.component.html',
   styleUrl: './lista-progetti.component.scss'
 })
 export class ListaProgettiComponent {
   progetti: {id:number,programma:string,fondo:string,codice:string,area:string,output:string,finanziamento:number,beneficiari:any[]}[] = [];
-
+  userRole:string = '';
   constructor(
     private userService: UserService,
     private apiService: ApiService,
@@ -22,8 +24,8 @@ export class ListaProgettiComponent {
   ){}
 
   ngOnInit(){
-   let userName = this.userService.getUserName();
-   console.log(userName);
+   let userRoles = this.userService.getUserRoles();
+   this.userRole = userRoles[0];
 
    this.apiService.getProgetti().subscribe(
     res => {
