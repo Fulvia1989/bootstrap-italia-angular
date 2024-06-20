@@ -1,18 +1,8 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup,  ReactiveFormsModule, Validators } from '@angular/forms';
 import { ApiService } from '../../../../services/api.service';
 import { ProgettoForm } from '../../../../shared/models/project.model';
-
-
-interface Progetto {
-  programma : string;
-  fondo: string;
-  bando: string;
-  progetto: string;
-  areaScientifica: string;
-  output: string;
-  finanziamento: number;
-}
+import { Modal } from 'bootstrap';
 
 @Component({
   selector: 'tab-programma',
@@ -41,6 +31,9 @@ export class TabProgrammaComponent {
   areaScientificaList : string[] = [];
   @Output() confermaEvt = new EventEmitter<any>();
   loading = false;
+
+  @ViewChild('modal') modal: any;
+
 
   constructor(
     private formBuilder : FormBuilder,
@@ -114,7 +107,10 @@ export class TabProgrammaComponent {
   submit(){
     this.loading = true;
     setTimeout(() => {
+      let myModal = new Modal(this.modal.nativeElement);
+      myModal.show();
       this.loading = false;
+      this.progetto.id='1';
       this.confermaEvt.emit();
     }, 2000);
   }

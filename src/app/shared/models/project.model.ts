@@ -11,11 +11,12 @@ export interface Progetto {
 }
 
 export interface ProgettoForm{
-    programma: '',
-    fondo:  '',
-    bando:  '',
-    progetto:  '',
-    areaScientifica:  '',
-    output:  '',
-    finanziamento: 0
+    id?:string
+    programma: string,
+    fondo:  string,
+    bando:  string,
+    progetto:  string,
+    areaScientifica:  string,
+    output:  string,
+    finanziamento: number
 }
