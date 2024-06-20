@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup,  ReactiveFormsModule, Validators } from '@angular/forms';
 import { ApiService } from '../../../../services/api.service';
+import { ProgettoForm } from '../../../../shared/models/project.model';
+
 
 interface Progetto {
   programma : string;
@@ -22,7 +24,7 @@ interface Progetto {
   styleUrl: './tab-programma.component.scss'
 })
 export class TabProgrammaComponent {
-   progetto: Progetto = {
+   progetto: ProgettoForm = {
     programma: '',
     fondo:  '',
     bando:  '',

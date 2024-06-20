@@ -23,6 +23,9 @@ th{
         // }
     }
 }
+tr.hover:hover {
+    background-color: var(--light-gray);
+}
 .icon-button{
     padding: 0.2rem;
     // display: flex;

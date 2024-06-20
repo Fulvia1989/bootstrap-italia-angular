@@ -1,4 +1,4 @@
-<div class="toolbar d-inline-flex align-items-center">
+<div class=" d-inline-flex align-items-center justify-content-between mb-2" style="width: 100%;">
   <h2>Progetti</h2>
   <button class="btn btn-secondary ms-auto" type="button" 
   (click)="aggiungiProgetto()"
@@ -8,7 +8,7 @@
   </button>
 </div>
 <div class="table-responsive">
-    <table class="table table-hover">
+    <table class="table">
         <thead class="secondary-background">
           <tr>
             <th scope="col" class="col-1">#</th>
@@ -22,9 +22,9 @@
           </tr>
         </thead>
         <tbody>
-            @for (progetto of progetti; track $index) {
+            @for (progetto of (progetti | paginator:centerCurrentPage:pageElements); track $index) {
 
-                <tr>
+                <tr class="hover">
                   <th scope="row">
                     <button class="btn icon-button" type="button"
                       data-bs-toggle="collapse"
@@ -35,7 +35,7 @@
                   </button>
 
                   </th>
-                  <td>{{progetto.programma}}</td>
+                  <td>{{progetto.bando}}</td>
                   <td>{{progetto.fondo}}</td>
                   <td>{{progetto.area}}</td>
                   <td>{{progetto.codice}}</td>
@@ -43,7 +43,10 @@
                   <td style="text-align: center;">{{progetto.finanziamento  |  currency:'EUR':'symbol':'4.2-2':'it-IT'}}</td>
                   <td>
                     <div class="buttons d-flex align-item-center justify-content-between">
-                      <button type="button" class="btn btn-outline-secondary icon-button">
+                      <button type="button" class="btn btn-outline-secondary icon-button"
+                      [isAdmin]="(userRole | role)"
+                      [action]="'display-none'"
+                      >
                         <it-icon size="sm" name="pencil"></it-icon>
                       </button>
                       <button type="button"  class="btn btn-outline-secondary icon-button ">
@@ -54,7 +57,7 @@
           
                   
                 </tr>
-                <tr class="hidden-row">
+                <tr class="hidden-row no-hover">
 
                   <td class="col-12" colspan="12">
 
@@ -101,3 +104,9 @@
         </tbody>
       </table>
 </div>
+<it-pagination
+[currentPage]="centerCurrentPage"
+[visiblePages]="3"
+[pageNumbers]="pagesNumber"
+alignment="end"
+(pageEvent)="rightPageChange($event)"></it-pagination>
