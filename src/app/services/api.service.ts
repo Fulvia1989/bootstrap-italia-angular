@@ -51,20 +51,9 @@ export class ApiService {
   }
 
 
-  getListaProgrammi(){
-    return this.get('/listaProgrammi').pipe(
-      tap(()=> console.log('chiamata programmi')),
-      catchError(err =>{
-        return throwError(()=> err || 'Server error');
-
-      })
-    )
-  }
-
-  getLista( url: string ,programmaId: string){
+  getLista( url: string ,programmaId?: string){
     console.log(programmaId)
     return this.get(`/${url}`).pipe(
-      tap(()=> console.log('chiamata fondi')),
       catchError(err =>{
         return throwError(()=> err || 'Server error');
 
