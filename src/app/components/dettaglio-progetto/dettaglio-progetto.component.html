@@ -11,9 +11,10 @@
       <tr >
         <th scope="col" class="col-1">#</th>
         <th scope="col" class="col-3">Nome / Link</th>
-        <th scope="col" class="col-2">Liberatorie</th>
-        <th scope="col" class="col-3">Data</th>
-        <th scope="col" class="col-3">
+        <th scope="col" class="col-3">Info</th>
+        <th scope="col" class="col-1" style="text-align: center;">Liberatorie</th>
+        <th scope="col" class="col-2" style="text-align: center;">Data</th>
+        <th scope="col" class="col-2">
             <button class="btn  btn-primary toolbar-button"> 
                 <it-icon name="plus" size="sm" color="white" class="me-2"></it-icon>
                 Aggiungi media
@@ -49,8 +50,9 @@
                     <a href="#">{{file.fileName}}</a>
                 }
               </td>
-              <td>{{file.liberatorie}}</td>
-              <td>{{file.data  |  date:'dd-mm-yyyy'}}</td>
+              <td>{{file.info ? file.info : '-'}}</td>
+              <td style="text-align: center;">{{file.liberatorie}}</td>
+              <td style="text-align: center;">{{file.data  |  date:'dd-mm-yyyy'}}</td>
               <td>
                 <div class="buttons d-flex align-item-center">
                   <button type="button" class="btn btn-outline-secondary btn-me icon-button"

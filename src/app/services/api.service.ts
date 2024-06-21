@@ -42,7 +42,7 @@ export class ApiService {
   }
 
   getProgetti(id?:number|string){
-    let path = id? `/progetti/${id}` : '/progetti';
+    let path = id? `progetti/${id}` : 'progetti';
 
     return this.get<any>(path).pipe(
       tap(()=> console.log('chiamata progetti')),

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { UserService } from '../../services/user.service';
-import { ItButtonDirective, ItCheckboxComponent, ItIconComponent, ItPaginationComponent } from 'design-angular-kit';
+import { ItButtonDirective, ItCheckboxComponent, ItIconComponent, ItPaginationComponent, ItTooltipDirective } from 'design-angular-kit';
 import { ApiService } from '../../services/api.service';
 import { CurrencyPipe } from '@angular/common';
 import { Router } from '@angular/router';
@@ -23,17 +23,19 @@ import { FormsModule, NgModel } from '@angular/forms';
     PaginatorPipe,
     ItCheckboxComponent,
     FormsModule,
-    
+    ItTooltipDirective
   ],
   templateUrl: './lista-progetti.component.html',
   styleUrl: './lista-progetti.component.scss'
 })
 export class ListaProgettiComponent {
+changerValues: number[]=[5,10,15,20,25,30];
+changerValue:number = 10;
+
   progetti: Progetto[] = [];
   
   userRole:string = '';
   centerCurrentPage = 0;
-  pageElements = 5;
   pagesNumber = 1;
   accettazione:boolean=false;
 
@@ -52,37 +54,50 @@ export class ListaProgettiComponent {
     this.userRole = userRoles[0];
     
     this.apiService.getProgetti().subscribe(
-    res => {
-      this.progetti =res;
-      this.pagesNumber = res.length % this.pageElements;
+      res => {
+        this.progetti =res;
+     
+        this.pagesNumber = Math.round(res.length / this.changerValue);
+      }
+    )
+  }
+
+  scaricaFile(type: 'informativa' | 'scheda') {
+    switch(type){
+      case 'informativa':
+        let link = document.createElement('a');
+        link.setAttribute('type', 'hidden');
+        link.href = '/assets/docs/informativa_privacy.pdf';
+        link.download = 'informativa_privacy.pdf';
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        break;
+      case 'scheda':
+        break;
+
     }
-  )
-}
+  }
 
-scaricaInformativa() {
-  let link = document.createElement('a');
-  link.setAttribute('type', 'hidden');
-  link.href = '/assets/docs/informativa_privacy.pdf';
-  link.download = 'informativa_privacy.pdf';
-  document.body.appendChild(link);
-  link.click();
-  link.remove();
-}
-
-
+  confermaAccettazione(){
+    this.hasAccepted = true;
+  }
   goTo(path:string,id?:number){
     id ? path = `${path}/${id}` : null;
     this.router.navigateByUrl(path);
 
   }
 
-  
+    
 
   rightPageChange(page: number): void {
     this.centerCurrentPage = page;
   }
-  confermaAccettazione(){
-    this.hasAccepted = true;
+  changerEvent(value: number) {
+    this.changerValue = value;
+    this.pagesNumber = Math.round(this.progetti.length / this.changerValue);
+    this.centerCurrentPage = 0;
   }
+
 
 }
