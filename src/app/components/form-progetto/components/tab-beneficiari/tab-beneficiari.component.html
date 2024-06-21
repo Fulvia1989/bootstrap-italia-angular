@@ -3,6 +3,12 @@
    Aggiungi Beneficiario
   </button>
 </div>
+@if (loading) {
+  <div class="progress progress-indeterminate">
+    <span class="visually-hidden">In elaborazione...</span>
+    <div class="progress-bar" role="progressbar"></div>
+  </div>
+}
 <table class="table">
   <thead class="table-light">
     <tr>
@@ -15,21 +21,53 @@
       <th scope="col">Azioni</th>
     </tr>
   </thead>
-  <tbody>
-    <tr>
-      <td>Mario</td>
-      <td>Verdi</td>
-      <td>mario.verdi</td>
-    </tr>
-    <tr>
-      <td>Francesco</td>
-      <td>Bianchi</td>
-      <td>francesco.bianchi</td>
-    </tr>
-    <tr>
-      <td>Alessandro</td>
-      <td>Rossi</td>
-      <td>alessandro.rossi</td>
-    </tr>
-  </tbody>
+    <tbody>
+      @for (beneficiario of beneficiari; track $index) {
+        <tr>
+            <td>{{beneficiario.nome}}</td>
+            <td>{{beneficiario.ruolo}}</td>
+            <td>{{beneficiario.email}}</td>
+            <td>{{beneficiario.telefono}}</td>
+            <td>{{beneficiario.contributo}}</td>
+            <td class="text-center">{{beneficiario.privacy ? "Si" : "No"}}</td>
+            <td>
+              <div class="buttons d-flex align-item-center justify-content-between">
+                <button type="button" class="btn btn-outline-secondary icon-button" itTooltip="Modifica" >
+                  <it-icon size="sm" name="pencil"></it-icon>
+                </button>
+                <button type="button"  class="btn btn-outline-secondary icon-button " (click)="modaleElimina(beneficiario)" itTooltip="Elimina">
+                  <it-icon size="sm" name="delete"></it-icon>
+                </button>
+              </div>
+            </td>
+        </tr>
+      }
+    </tbody>
 </table>
+
+@if(!beneficiari.length){
+  <div class="text-center">
+    <h6>Nessun Beneficiario Trovato</h6>
+  </div>
+}
+
+<div class="modal fade" tabindex="-1" role="dialog" id="eliminaModal" aria-labelledby="eliminaModalTitle" #eliminaModal>
+  <div class="modal-dialog" role="document">
+     <div class="modal-content">
+        <div class="modal-header">
+           <h2 class="modal-title h5 " id="eliminaModalTitle">Elimina Beneficiario</h2>
+           <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Chiudi finestra modale">
+              <svg class="icon"><use href="/bootstrap-italia/dist/svg/sprites.svg#it-close"></use></svg>
+           </button>
+        </div>
+        <div class="modal-body">
+           <p>Attenzione, Si sta per eliminare il beneficiario <strong>{{beneficiarioToDelete?.nome}}</strong>.</p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-outline-primary btn-sm" type="button" data-bs-dismiss="modal" >Annulla</button>
+          <button class="btn btn-primary btn-sm" type="button" (click)="eliminaBeneficiario()" >Elimina</button>
+
+        </div>
+     </div>
+  </div>
+</div>

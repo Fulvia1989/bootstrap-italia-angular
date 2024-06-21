@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import {  ItButtonDirective, ItTabContainerComponent, ItTabItemComponent } from 'design-angular-kit';
 import { TabProgrammaComponent } from './components/tab-programma/tab-programma.component';
 import { TabBeneficiariComponent } from './components/tab-beneficiari/tab-beneficiari.component';
+import { TabMediaComponent } from './components/tab-media/tab-media.component';
 @Component({
   selector: 'app-form-progetto',
   standalone: true,
@@ -11,7 +12,8 @@ import { TabBeneficiariComponent } from './components/tab-beneficiari/tab-benefi
     ItTabContainerComponent,
     ItTabItemComponent,
     TabProgrammaComponent,
-    TabBeneficiariComponent
+    TabBeneficiariComponent,
+    TabMediaComponent
   ],
   templateUrl: './form-progetto.component.html',
   styleUrl: './form-progetto.component.scss'
@@ -19,7 +21,7 @@ import { TabBeneficiariComponent } from './components/tab-beneficiari/tab-benefi
 export class FormProgettoComponent {
 
   activeTab=0
-  programmaConfermato = true;
+  idProgetto : string = "1";
   constructor(
     private router : Router
   ){}
@@ -28,7 +30,7 @@ export class FormProgettoComponent {
     this.router.navigateByUrl('/progetti');
   }
 
-  programmaConfermatoEvt(){
-    this.programmaConfermato = true;
+  programmaConfermatoEvt(idProgetto : string){
+    this.idProgetto = idProgetto;
   }
 }
