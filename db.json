@@ -257,64 +257,8 @@
         "beneficiari":[]
       }
     ],
-    "listaProgrammi":[
-      {
-        "id":"1",
-        "descrizione":"PON14-20"
-      },
-      {
-        "id":"2",
-        "descrizione":"PON15-21"
-      }
-      ,
-      {
-        "id":"3",
-        "descrizione":"PON15-22"
-      }
-    ],
-    "listaFondi":[
-      {
-        "id":"1",
-        "descrizione":"Banca Italiana"
-      },
-      {
-        "id":"2",
-        "descrizione":"Fondi Personali"
-      }
-      ,
-      {
-        "id":"3",
-        "descrizione":"Banca Estera"
-      }
-    ],
-    "listaBandi":[
-      {
-        "id":"1",
-        "descrizione":"Bando 1"
-      },
-      {
-        "id":"2",
-        "descrizione":"Bando 2"
-      }
-      ,
-      {
-        "id":"3",
-        "descrizione":"Bando 3"
-      }
-    ],
-    "listaAreeScientifiche":[
-      {
-        "id":"1",
-        "descrizione":"Microbiologia"
-      },
-      {
-        "id":"2",
-        "descrizione":"Robotica"
-      }
-      ,
-      {
-        "id":"3",
-        "descrizione":"Areospaziale"
-      }
-    ]
+    "listaProgrammi":{"lista":["Programma1","Programma2","Programma3"]},
+    "listaFondi":{"lista":["Banca Italiana","Fondi Personali","Banca Estera"]},
+    "listaBandi":{"lista":["Bando 1","Bando 2","Bando 3"]},
+    "listaAreeScientifiche":{"lista":["Microbiologia","Robotica","Areospaziale"]}
   }

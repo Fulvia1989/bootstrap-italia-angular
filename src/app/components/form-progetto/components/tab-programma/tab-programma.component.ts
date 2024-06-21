@@ -1,13 +1,8 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup,  ReactiveFormsModule, Validators } from '@angular/forms';
 import { ApiService } from '../../../../services/api.service';
 import { ProgettoForm } from '../../../../shared/models/project.model';
-
-
-interface Element {
-  id: string,
-  descrizione: string
-}
+import { Modal } from 'bootstrap';
 
 @Component({
   selector: 'tab-programma',
@@ -30,13 +25,14 @@ export class TabProgrammaComponent {
   }
   declare form: FormGroup;
 
-  programmaList : Element[] = [];
-  fondoList : Element[] = [];
-  bandoList : Element[] = [];
-  areaScientificaList : Element[] = [];
+  programmaList : string[] = [];
+  fondoList : string[] = [];
+  bandoList : string[] = [];
+  areaScientificaList : string[] = [];
   @Output() confermaEvt = new EventEmitter<any>();
   loading = false;
 
+  @ViewChild('modal') modal: any;
 
 
   constructor(
@@ -110,7 +106,13 @@ export class TabProgrammaComponent {
 
   submit(){
     this.loading = true;
-    this.confermaEvt.emit();
+    setTimeout(() => {
+      let myModal = new Modal(this.modal.nativeElement);
+      myModal.show();
+      this.loading = false;
+      this.progetto.id='1';
+      this.confermaEvt.emit();
+    }, 2000);
   }
 
 }

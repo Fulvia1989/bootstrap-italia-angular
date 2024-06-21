@@ -7,10 +7,11 @@ export interface Progetto {
     area:string,
     output:string,
     finanziamento:number,
-    beneficiari:any[]
+    beneficiari:Beneficiari[]
 }
 
 export interface ProgettoForm{
+    id?:string;
     programma: '',
     fondo:  '',
     bando:  '',
@@ -29,4 +30,14 @@ export interface Media{
     numeroLiberatorie:number,
     noLiberatorie:false,
     data:number;
+}
+
+
+export interface Beneficiari {
+  nome:string,
+  ruolo: string,
+  email:string,
+  telefono: string,
+  contributo: string,
+  privacy?:boolean //nella tabella dei progetti non è presente
 }

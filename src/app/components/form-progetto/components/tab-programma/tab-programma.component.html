@@ -8,8 +8,8 @@
         <div class="text-center select-wrapper">
           <select id="programma" formControlName="programma"  (change)="programmaSelected(form.controls['programma'].value)">
             <option value="" disabled selected>Seleziona</option>
-            @for (item of programmaList; track item.id) {
-              <option [value]="item.id">{{item.descrizione}}</option>
+            @for (item of programmaList; track item) {
+              <option [value]="item">{{item}}</option>
               }
               </select>
               @if(form.controls['programma'].errors && form.controls['programma'].touched){
@@ -26,8 +26,8 @@
         <div class="text-center select-wrapper">
           <select id="fondo" formControlName="fondo" (change)="fondoSelected(form.controls['fondo'].value)">
             <option value='' disabled selected>Seleziona</option>
-            @for (item of fondoList; track item.id) {
-              <option [value]="item.id">{{item.descrizione}}</option>
+            @for (item of fondoList; track item) {
+              <option [value]="item">{{item}}</option>
               }
           </select>
           @if(form.controls['fondo'].errors && form.controls['fondo'].touched){
@@ -44,8 +44,8 @@
         <div class="text-center select-wrapper">
           <select id="bando" formControlName="bando">
             <option value='' disabled selected>Seleziona</option>
-            @for (item of bandoList; track item.id) {
-              <option [value]="item.id">{{item.descrizione}}</option>
+            @for (item of bandoList; track item) {
+              <option [value]="item">{{item}}</option>
               }
           </select>
           @if(form.controls['bando'].errors && form.controls['bando'].touched){
@@ -75,8 +75,8 @@
         <div class="text-center select-wrapper">
           <select id="areaScientifica" formControlName="areaScientifica">
             <option value='' disabled selected>Seleziona</option>
-            @for (item of areaScientificaList; track item.id) {
-              <option [value]="item.id">{{item.descrizione}}</option>
+            @for (item of areaScientificaList; track item) {
+              <option [value]="item">{{item}}</option>
               }
           </select>
           @if(form.controls['areaScientifica'].errors && form.controls['areaScientifica'].touched){
@@ -113,17 +113,39 @@
     </div>
   </div>
   <div class="row my-3">
-    <div class="col-md-8 offset-md-2 text-end">
+    <div class="col-6 offset-md-2 text-end pt-2">
       @if(loading){
-          <div class="progress-spinner progress-spinner-double size-sm progress-spinner-active">
-            <div class="progress-spinner-inner"></div>
-            <div class="progress-spinner-inner"></div>
-            <span class="visually-hidden">Caricamento...</span>
-          </div>
+        <div class="progress-spinner progress-spinner-double size-sm progress-spinner-active">
+          <div class="progress-spinner-inner"></div>
+          <div class="progress-spinner-inner"></div>
+          <span class="visually-hidden">Caricamento...</span>
+        </div>
       }
+    </div>
+    <div class="col-2 text-end">
       <button  class="btn btn-secondary" type="submit" [disabled]="form.invalid || loading">
           Conferma
       </button>
     </div>
   </div>
 </form>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="modal" aria-labelledby="modalTitle" #modal>
+  <div class="modal-dialog" role="document">
+     <div class="modal-content">
+        <div class="modal-header">
+           <h2 class="modal-title h5 " id="modalTitle">Operazione Completata</h2>
+           <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Chiudi finestra modale">
+              <svg class="icon"><use href="/bootstrap-italia/dist/svg/sprites.svg#it-close"></use></svg>
+           </button>
+        </div>
+        <div class="modal-body">
+           <p>Il Programma è stato correttamente salvato.</p>
+            <p>ora è possibile aggiungere Media o Beneficiari.</p>
+        </div>
+        <div class="modal-footer">
+           <button class="btn btn-primary btn-sm" type="button" data-bs-dismiss="modal" >Ok</button>
+        </div>
+     </div>
+  </div>
+</div>

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import {  ItButtonDirective, ItTabContainerComponent, ItTabItemComponent } from 'design-angular-kit';
 import { TabProgrammaComponent } from './components/tab-programma/tab-programma.component';
+import { TabBeneficiariComponent } from './components/tab-beneficiari/tab-beneficiari.component';
 @Component({
   selector: 'app-form-progetto',
   standalone: true,
@@ -9,7 +10,8 @@ import { TabProgrammaComponent } from './components/tab-programma/tab-programma.
     ItButtonDirective,
     ItTabContainerComponent,
     ItTabItemComponent,
-    TabProgrammaComponent
+    TabProgrammaComponent,
+    TabBeneficiariComponent
   ],
   templateUrl: './form-progetto.component.html',
   styleUrl: './form-progetto.component.scss'
@@ -17,7 +19,7 @@ import { TabProgrammaComponent } from './components/tab-programma/tab-programma.
 export class FormProgettoComponent {
 
   activeTab=0
-  programmaConfermato = false;
+  programmaConfermato = true;
   constructor(
     private router : Router
   ){}
