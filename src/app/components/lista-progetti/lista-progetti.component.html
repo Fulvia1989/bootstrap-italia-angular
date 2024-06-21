@@ -92,22 +92,25 @@
                       [action]="'display-none'"
                       [disabled]="!hasAccepted"
                       itTooltip="Dettaglio"
+                      aria-label="Dettaglio"
                       >
-                        <it-icon size="sm" name="pencil"></it-icon>
+                        <it-icon size="sm" name="pencil" aria-hidden="true"></it-icon>
                       </button>
                       <button type="button"  class="btn btn-outline-secondary icon-button "
                       (click)="goTo('/progetti/dettaglio-progetto',progetto.id)"
                       [disabled]="!hasAccepted"
                       itTooltip="Media"
+                      aria-label="Media"
                       >
-                        <it-icon size="sm" name="file-video"></it-icon>
+                        <it-icon size="sm" name="file-video" aria-hidden="true"></it-icon>
                       </button>
                       <button type="button"  class="btn btn-outline-secondary icon-button "
                       (click)="scaricaFile('scheda')"
                       [disabled]="!hasAccepted"
                       itTooltip="Scheda progetto"
+                      aria-label="Scheda progetto"
                       >
-                        <it-icon size="sm" name="file"></it-icon>
+                        <it-icon size="sm" name="file" aria-hidden="true"></it-icon>
                       </button>
                     </div>
                   </td>

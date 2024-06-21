@@ -29,13 +29,22 @@
               <th scope="row">
                 @switch (file.tipo) {
                     @case ('image') {
-                        <it-icon name="camera"></it-icon>
+                        <span aria-label="File immagine" itTooltip="Immagine">
+
+                            <it-icon name="camera" aria-hidden="true"></it-icon>
+                        </span>
                     }
                     @case ('video') {
-                        <it-icon name="video"></it-icon>
+                        <span aria-label="File video" itTooltip="Video">
+
+                            <it-icon name="video" ></it-icon>
+                        </span>
                     }
                     @case ('doc') {
-                        <it-icon name="file-pdf"></it-icon>
+                        <span  aria-label="Documento" itTooltip="Documento">
+
+                            <it-icon name="file-pdf" aria-hidden="true"></it-icon>
+                        </span>
                     }
                 }
                 
@@ -45,9 +54,9 @@
               <td>
                 @if(file.link){
 
-                    <a href="{{file.link}}">{{file.link}}</a>
+                    <a href="{{file.link}}" target="_blank">{{file.link}}</a>
                 }@else {
-                    <a href="#">{{file.fileName}}</a>
+                    <a href="#" (click)="anteprima($event)">{{file.fileName}}</a>
                 }
               </td>
               <td>{{file.info ? file.info : '-'}}</td>
@@ -56,13 +65,16 @@
               <td>
                 <div class="buttons d-flex align-item-center">
                   <button type="button" class="btn btn-outline-secondary btn-me icon-button"
-             
+                    itTooltip="Modifica"
+                    aria-label="Modifica"
                   >
-                    <it-icon size="sm" name="pencil"></it-icon>
+                    <it-icon size="sm" name="pencil" aria-hidden="true"></it-icon>
                   </button>
                   <button type="button"  class="btn btn-outline-secondary icon-button "
+                  itTooltip="Elimina"
+                  aria-label="elimina"
                   >
-                    <it-icon size="sm" name="delete"></it-icon>
+                    <it-icon size="sm" name="delete" aria-hidden="true"></it-icon>
                   </button>
                 </div>
               </td>

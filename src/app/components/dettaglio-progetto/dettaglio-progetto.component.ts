@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../../services/api.service';
 import { Media } from '../../shared/models/project.model';
 import { PaginatorPipe } from '../../shared/pipes/paginator.pipe';
-import { ItIconComponent, ItPaginationComponent } from 'design-angular-kit';
+import { ItIconComponent, ItPaginationComponent, ItTooltipDirective } from 'design-angular-kit';
 import { DatePipe } from '@angular/common';
 
 @Component({
@@ -13,7 +13,8 @@ import { DatePipe } from '@angular/common';
     PaginatorPipe,
     ItIconComponent,
     ItPaginationComponent,
-    DatePipe
+    DatePipe,
+    ItTooltipDirective
   ],
   templateUrl: './dettaglio-progetto.component.html',
   styleUrl: './dettaglio-progetto.component.scss'
@@ -50,6 +51,10 @@ export class DettaglioProgettoComponent {
   }
   rightPageChange(page: number): void {
     this.centerCurrentPage = page;
+  }
+  anteprima(e:Event){
+    e.preventDefault();
+    
   }
 
 }
