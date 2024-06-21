@@ -10,14 +10,13 @@
     <thead class="secondary-background">
       <tr >
         <th scope="col" class="col-1">#</th>
-        <th scope="col" class="col-2">Nome</th>
-        <th scope="col" class="col-3">Link</th>
+        <th scope="col" class="col-3">Nome / Link</th>
         <th scope="col" class="col-2">Liberatorie</th>
-        <th scope="col" class="col-2">Data</th>
-        <th scope="col" class="col-2">
-            <button class="btn  btn-primary btn-xs btn-icon"> 
-                <it-icon name="plus" color="white"></it-icon>
-                Aggiungi
+        <th scope="col" class="col-3">Data</th>
+        <th scope="col" class="col-3">
+            <button class="btn  btn-primary toolbar-button"> 
+                <it-icon name="plus" size="sm" color="white" class="me-2"></it-icon>
+                Aggiungi media
             </button>
         </th>
       </tr>
@@ -42,8 +41,14 @@
               
 
               </th>
-              <td>{{file.fileName}}</td>
-              <td>{{file.link}}</td>
+              <td>
+                @if(file.link){
+
+                    <a href="{{file.link}}">{{file.link}}</a>
+                }@else {
+                    <a href="#">{{file.fileName}}</a>
+                }
+              </td>
               <td>{{file.liberatorie}}</td>
               <td>{{file.data  |  date:'dd-mm-yyyy'}}</td>
               <td>

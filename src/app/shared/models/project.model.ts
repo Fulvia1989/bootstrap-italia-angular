@@ -23,6 +23,9 @@ export interface ProgettoForm{
 }
 
 export interface Media{
+    id?:number,
+    info?:string,
+    stato?:string,
     tipo:string,
     file:string,
     link:string,

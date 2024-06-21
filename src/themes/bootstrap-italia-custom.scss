@@ -10,12 +10,16 @@ $primary-b:62;
 $secondary:#240053;
 $dark:#14002e;
 $light-gray:#eceeef;
+$gray:#5D7083;
+$green: #008055;
 
 :root{
     --secondary: #{$secondary};
     --primary: #{$primary};
     --dark: #{$dark};
     --light-gray:#{$light-gray};
+    --gray:#{$gray};
+    --success:#{$green};
     
 }
 

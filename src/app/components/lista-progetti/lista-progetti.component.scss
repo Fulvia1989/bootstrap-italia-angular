@@ -1,5 +1,35 @@
+#informativa{
 
+    .info-box{
+        width: 100%;
+        border: 2px solid var(--gray);
+        border-radius: 0.3rem;
+        padding: 0.5rem;
+        font-size: small;
+        color: var(--gray);
+        font-weight: bold;
+    }
+    .custom-collout{
+        border-left: 2px solid var(--gray);
+        padding: 0 0 0 2rem;
+        color: var(--gray);
+        .collout-title{
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        p{
+            font-size: smaller;
+        }
 
+        &.success{
+            border-left-color: var(--success) ;
+            color: var(--success);
+        }
+    }
+}
 .hidden-row{
     
     border-color:transparent ;

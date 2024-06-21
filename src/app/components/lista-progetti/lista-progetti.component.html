@@ -1,9 +1,53 @@
+<section id="informativa" class="mb-3">
+  <div class=" d-flex flex-wrap align-items-center mb-2" style="width: 100%;">
+    <h2>Informativa privacy</h2>
+    <button class="btn btn-secondary ms-auto toolbar-button" type="button" 
+    (click)="scaricaInformativa()"
+    >
+      Scarica informativa
+    </button>
+  </div>
+  <div class="custom-collaut">
+
+  </div>
+  <div class="custom-collout" [class.success]="hasAccepted">
+    <div class="collout-title">
+      @if(!hasAccepted){
+
+        <it-icon name="info-circle" ></it-icon>
+        <span class="ms-1">Azione necessaria</span>
+      }@else {
+        <it-icon name="check-circle" color="success"></it-icon>
+        <span class="ms-1">Confermata</span>
+      }
+    </div>
+    <p>L'accettazione dell'informativa sulla privacy è obbligatoria ai fini della visualizzazione dei contenuti all'interno del Catalogo della ricerca</p>
+
+  </div>
+  
+  @if(!hasAccepted){
+
+    <form>
+      <div class="info-box">
+        <p [innerHTML]="infoBoxTxt"></p>
+      </div>
+      <it-checkbox [(ngModel)]="accettazione" name="informativa" label="Ho letto e accetto l'informativa sulla privacy"></it-checkbox>
+      
+      <button class="btn btn-secondary" 
+      [disabled]="!accettazione"
+      (click)="confermaAccettazione()"
+      >Conferma</button>
+  
+    </form>
+  }
+</section>
 <div class=" d-inline-flex align-items-center justify-content-between mb-2" style="width: 100%;">
   <h2>Progetti</h2>
   <button class="btn btn-secondary ms-auto" type="button" 
   (click)="goTo('/form-progetto')"
   [isAdmin]="(userRole | role)"
-  [action]="'display-none'">
+  [action]="'display-none'"
+  [disabled]="!hasAccepted">
     Aggiungi Progetto
   </button>
 </div>
@@ -46,11 +90,13 @@
                       <button type="button" class="btn btn-outline-secondary icon-button"
                       [isAdmin]="(userRole | role)"
                       [action]="'display-none'"
+                      [disabled]="!hasAccepted"
                       >
                         <it-icon size="sm" name="pencil"></it-icon>
                       </button>
                       <button type="button"  class="btn btn-outline-secondary icon-button "
                       (click)="goTo('/progetti/dettaglio-progetto',progetto.id)"
+                      [disabled]="!hasAccepted"
                       >
                         <it-icon size="sm" name="file-video"></it-icon>
                       </button>
