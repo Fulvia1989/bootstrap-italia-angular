@@ -67,8 +67,8 @@ export class ApiService {
 
   getLista( url: string ,id?: string){
     console.log(id);
-    let path = id? `${url}/${id}` : url;
-    return this.get<any>(`${path}`).pipe(
+    //let path = id? `${url}/${id}` : url;
+    return this.get<any>(`${url}`).pipe(
       tap(()=> console.log('chiamata fondi')),
       map((res)=>res.lista),
       catchError(err =>{

@@ -111,7 +111,7 @@ export class TabProgrammaComponent {
       myModal.show();
       this.loading = false;
       this.progetto.id='1';
-      this.confermaEvt.emit();
+      this.confermaEvt.emit(this.progetto.id);
     }, 2000);
   }
 
