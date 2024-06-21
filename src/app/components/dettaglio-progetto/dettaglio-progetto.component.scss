@@ -1,0 +1,13 @@
+.subtitle{
+    width: 100%;
+    background-color: var(--secondary);
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: medium;
+    letter-spacing: 1px;
+}
+.table>thead{
+    vertical-align: middle;
+}

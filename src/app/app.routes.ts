@@ -13,8 +13,13 @@ export const routes: Routes = [
         loadComponent: () => import('./components/lista-progetti/lista-progetti.component').then(m => m.ListaProgettiComponent)
     },
     {
+        path:'progetti/dettaglio-progetto/:idProgetto',
+        title: 'Dettaglio Progetto',
+        loadComponent: () => import('./components/dettaglio-progetto/dettaglio-progetto.component').then(m => m.DettaglioProgettoComponent)
+    },
+    {
         path:'form-progetto',
-        title: 'form-progetto',
+        title: 'Form Progetto',
         loadComponent: () => import('./components/form-progetto/form-progetto.component').then(m => m.FormProgettoComponent)
     }
 ];

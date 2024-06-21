@@ -7,7 +7,7 @@ import { Progetto } from '../models/project.model';
 })
 export class PaginatorPipe implements PipeTransform {
 
-  transform(array: Progetto[], centerCurrentPage:number, pageElements:number): Progetto[] {
+  transform(array: any[], centerCurrentPage:number, pageElements:number): any[] {
     let fromIndex = centerCurrentPage ? (centerCurrentPage )*pageElements : 0;
     let toIndex = (fromIndex + pageElements);
     return array.slice(fromIndex,toIndex);

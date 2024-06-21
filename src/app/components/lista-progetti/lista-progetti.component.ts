@@ -8,6 +8,7 @@ import { RoleDirective } from '../../shared/directives/role.directive';
 import { RolePipe } from '../../shared/pipes/role.pipe';
 import { Progetto } from '../../shared/models/project.model';
 import { PaginatorPipe } from '../../shared/pipes/paginator.pipe';
+import { Modal } from 'bootstrap-italia';
 
 @Component({
   selector: 'app-lista-progetti',
@@ -49,8 +50,12 @@ export class ListaProgettiComponent {
    )
   }
 
-  aggiungiProgetto(){
-    this.router.navigateByUrl('/form-progetto');
+ 
+
+  goTo(path:string,id?:number){
+    id ? path = `${path}/${id}` : null;
+    this.router.navigateByUrl(path);
+
   }
 
   

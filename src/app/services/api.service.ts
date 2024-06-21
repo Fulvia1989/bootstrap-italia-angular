@@ -62,9 +62,11 @@ export class ApiService {
     )
   }
 
-  getLista( url: string ,programmaId?: string){
-    console.log(programmaId)
-    return this.get<any>(`/${url}`).pipe(
+  getLista( url: string ,id?: string){
+    console.log(id);
+    let path = id? `${url}/${id}` : url;
+
+    return this.get<any>(`${path}`).pipe(
       tap(()=> console.log('chiamata fondi')),
       catchError(err =>{
         return throwError(()=> err || 'Server error');

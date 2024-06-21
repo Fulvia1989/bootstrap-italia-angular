@@ -1,0 +1,73 @@
+<div role="toolbar" class=" d-inline-flex align-items-center mb-2" style="width: 100%;">
+    <button class="btn btn-outline-secondary me-3" type="button" 
+    (click)="goTo('/progetti')">
+      Indietro
+    </button>
+    <h2>Dettagli progetto</h2>
+</div>
+<h3 class="subtitle mb-2">Media</h3>
+<table class="table">
+    <thead class="secondary-background">
+      <tr >
+        <th scope="col" class="col-1">#</th>
+        <th scope="col" class="col-2">Nome</th>
+        <th scope="col" class="col-3">Link</th>
+        <th scope="col" class="col-2">Liberatorie</th>
+        <th scope="col" class="col-2">Data</th>
+        <th scope="col" class="col-2">
+            <button class="btn  btn-primary btn-xs btn-icon"> 
+                <it-icon name="plus" color="white"></it-icon>
+                Aggiungi
+            </button>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+        @for (file of (mediaList | paginator:centerCurrentPage:pageElements); track $index) {
+
+            <tr class="hover">
+              <th scope="row">
+                @switch (file.tipo) {
+                    @case ('image') {
+                        <it-icon name="camera"></it-icon>
+                    }
+                    @case ('video') {
+                        <it-icon name="video"></it-icon>
+                    }
+                    @case ('doc') {
+                        <it-icon name="file-pdf"></it-icon>
+                    }
+                }
+                
+              
+
+              </th>
+              <td>{{file.fileName}}</td>
+              <td>{{file.link}}</td>
+              <td>{{file.liberatorie}}</td>
+              <td>{{file.data  |  date:'dd-mm-yyyy'}}</td>
+              <td>
+                <div class="buttons d-flex align-item-center">
+                  <button type="button" class="btn btn-outline-secondary btn-me icon-button"
+             
+                  >
+                    <it-icon size="sm" name="pencil"></it-icon>
+                  </button>
+                  <button type="button"  class="btn btn-outline-secondary icon-button "
+                  >
+                    <it-icon size="sm" name="delete"></it-icon>
+                  </button>
+                </div>
+              </td>
+      
+              
+            </tr>
+        }
+    </tbody>
+</table>
+<it-pagination
+[currentPage]="centerCurrentPage"
+[visiblePages]="3"
+[pageNumbers]="pagesNumber"
+alignment="end"
+(pageEvent)="rightPageChange($event)"></it-pagination>

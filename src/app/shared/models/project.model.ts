@@ -19,3 +19,14 @@ export interface ProgettoForm{
     output:  '',
     finanziamento: 0
 }
+
+export interface Media{
+    tipo:string,
+    file:string,
+    link:string,
+    file_type:string,
+    fileName:string,
+    numeroLiberatorie:number,
+    noLiberatorie:false,
+    data:number;
+}

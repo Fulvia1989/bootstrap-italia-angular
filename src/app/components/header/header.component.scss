@@ -1,29 +1,29 @@
 
-nav{
-    .custom-avatar{
-        width: 4rem;
-        height: 4rem;
-        background-color: white;
-        border-radius: 50%;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-right: 1rem;
-    
-        img{
-            width: 70%;
-            height: 70%;
-        }
-        &.small{
-            width: 3rem;
-            height: 2.5rem;
-            background: url('../../../assets/mur_logo_bianco.svg');
-            background-size: cover;
-    
-           
-        }
+.custom-avatar{
+    width: 4rem;
+    height: 4rem;
+    background-color: white;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+
+    img{
+        width: 70%;
+        height: 70%;
     }
+    &.small{
+        width: 3rem;
+        height: 2.5rem;
+        background: url('../../../assets/mur_logo_bianco.svg');
+        background-size: cover;
+
+       
+    }
+}
+nav{
     .right-zone{
         display: flex;
         flex-direction: column;
