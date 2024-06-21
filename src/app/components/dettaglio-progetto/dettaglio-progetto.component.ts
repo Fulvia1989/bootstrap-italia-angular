@@ -22,9 +22,12 @@ import { DatePipe } from '@angular/common';
 export class DettaglioProgettoComponent {
   idProgetto:string = '';
   mediaList: Media[] = [];
+  changerValues: number[]=[5,10,15,20,25,30];
+
   centerCurrentPage = 0;
   pageElements = 5;
   pagesNumber = 1;
+  changerValue: number = 5;
 
   constructor(
     private route: ActivatedRoute,
@@ -40,6 +43,7 @@ export class DettaglioProgettoComponent {
     this.apiService.getProgetti(this.idProgetto).subscribe(
       res=> {
         res? this.mediaList = res.media : [];
+        this.pagesNumber = Math.round(this.mediaList.length / this.changerValue);
       }
     )
 
@@ -52,9 +56,14 @@ export class DettaglioProgettoComponent {
   rightPageChange(page: number): void {
     this.centerCurrentPage = page;
   }
+  changerEvent(value: number) {
+    this.changerValue = value;
+    this.pagesNumber = Math.round(this.mediaList.length / this.changerValue);
+    this.centerCurrentPage = 0;
+  }
   anteprima(e:Event){
     e.preventDefault();
-    
+
   }
 
 }

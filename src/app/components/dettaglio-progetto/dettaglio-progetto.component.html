@@ -89,4 +89,7 @@
 [visiblePages]="3"
 [pageNumbers]="pagesNumber"
 alignment="end"
+[currentChanger]="changerValue"
+[changerValues]="changerValues"
+(changerEvent)="changerEvent($event)"
 (pageEvent)="rightPageChange($event)"></it-pagination>
