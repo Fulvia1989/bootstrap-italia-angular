@@ -21,7 +21,7 @@ import { TabMediaComponent } from './components/tab-media/tab-media.component';
 export class FormProgettoComponent {
 
   activeTab=0
-  idProgetto : string = "1";
+  idProgetto! : string;
   constructor(
     private router : Router
   ){}

@@ -10,7 +10,7 @@
   </div>
 }
 <table class="table">
-  <thead class="table-light">
+  <thead class="table-light text-center">
     <tr>
       <th scope="col">Beneficiario</th>
       <th scope="col">Ruolo</th>
@@ -21,7 +21,7 @@
       <th scope="col" class="text-center">Azioni</th>
     </tr>
   </thead>
-    <tbody>
+    <tbody class="text-center">
       @for (beneficiario of beneficiari; track $index) {
         <tr>
             <td>{{beneficiario.nome}}</td>

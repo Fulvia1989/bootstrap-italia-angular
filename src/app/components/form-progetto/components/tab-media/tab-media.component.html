@@ -10,20 +10,31 @@
   </div>
 }
 <table class="table">
-  <thead class="table-light">
+  <thead class="table-light text-center">
     <tr>
       <th scope="col">Tipologia</th>
       <th scope="col">Stato</th>
       <th scope="col">Nome</th>
       <th scope="col">Data</th>
       <th scope="col">Info</th>
-      <th scope="col" class="text-center" >Azioni</th>
+      <th scope="col">Azioni</th>
     </tr>
   </thead>
-    <tbody>
-      @for (media of listaMedia; track $index) {
+    <tbody class="text-center">
+      @for (media of (listaMedia | paginator:centerCurrentPage:changerValue); track $index) {
         <tr>
-            <td>{{media.tipo}}</td>
+            <td>
+              @if(media.tipo == "image"){
+                <it-icon size="sm" name="pencil"></it-icon>
+              }
+              @if(media.tipo == "video"){
+                <it-icon size="sm" name="file-pdf"></it-icon>
+              }
+              @if(media.tipo == "pdf"){
+                <it-icon size="sm" name="pencil"></it-icon>
+              }
+
+            </td>
             <td>{{media.stato}}</td>
             <td><u class="file-link">{{media.fileName}}</u></td>
             <td>{{media.data}}</td>
@@ -45,12 +56,22 @@
       }
     </tbody>
 </table>
+<it-pagination
+[currentPage]="centerCurrentPage"
+[visiblePages]="3"
+[pageNumbers]="pagesNumber"
+alignment="end"
+[currentChanger]="changerValue"
+[changerValues]="changerValues"
+(changerEvent)="changerEvent($event)"
+(pageEvent)="rightPageChange($event)"></it-pagination>
 
 @if(!listaMedia.length){
   <div class="text-center">
     <h6>Nessun Media Trovato</h6>
   </div>
 }
+
 
 <div class="modal fade" tabindex="-1" role="dialog" id="eliminaModal" aria-labelledby="eliminaModalTitle" #eliminaModal>
   <div class="modal-dialog" role="document">
