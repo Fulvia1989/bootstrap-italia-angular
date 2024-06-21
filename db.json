@@ -257,5 +257,25 @@
     "listaProgrammi":{"lista":["Programma1","Programma2","Programma3"]},
     "listaFondi":{"lista":["Banca Italiana","Fondi Personali","Banca Estera"]},
     "listaBandi":{"lista":["Bando 1","Bando 2","Bando 3"]},
-    "listaAreeScientifiche":{"lista":["Microbiologia","Robotica","Areospaziale"]}
+    "listaAreeScientifiche":{"lista":["Microbiologia","Robotica","Areospaziale"]},
+    "beneficiari":[
+      {
+        "id":"123",
+        "nome":"Tim S.p.A.",
+        "ruolo":"partner",
+        "email":"info@tim.it",
+        "telefono":"02865734",
+        "contributo":"Concontributo Realizzativo",
+        "privacy":true
+      },
+      {
+        "id":"1234",
+        "nome":"Ferrari",
+        "ruolo":"partner",
+        "email":"info@ferrari.it",
+        "telefono":"075648398",
+        "contributo":"Conoscenza nella contruzione di veicoli areodinamici",
+        "privacy":false
+      }
+    ]
   }

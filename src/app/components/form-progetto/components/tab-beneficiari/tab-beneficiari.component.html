@@ -3,6 +3,12 @@
    Aggiungi Beneficiario
   </button>
 </div>
+@if (loading) {
+  <div class="progress progress-indeterminate">
+    <span class="visually-hidden">In elaborazione...</span>
+    <div class="progress-bar" role="progressbar"></div>
+  </div>
+}
 <table class="table">
   <thead class="table-light">
     <tr>
@@ -15,21 +21,33 @@
       <th scope="col">Azioni</th>
     </tr>
   </thead>
-  <tbody>
-    <tr>
-      <td>Mario</td>
-      <td>Verdi</td>
-      <td>mario.verdi</td>
-    </tr>
-    <tr>
-      <td>Francesco</td>
-      <td>Bianchi</td>
-      <td>francesco.bianchi</td>
-    </tr>
-    <tr>
-      <td>Alessandro</td>
-      <td>Rossi</td>
-      <td>alessandro.rossi</td>
-    </tr>
-  </tbody>
+    <tbody>
+      @for (beneficiario of beneficiari; track $index) {
+        <tr>
+            <td>{{beneficiario.nome}}</td>
+            <td>{{beneficiario.ruolo}}</td>
+            <td>{{beneficiario.email}}</td>
+            <td>{{beneficiario.telefono}}</td>
+            <td>{{beneficiario.contributo}}</td>
+            <td>{{beneficiario.privacy ? "Si" : "No"}}</td>
+            <td>
+              <div class="buttons d-flex align-item-center justify-content-between">
+                <button type="button" class="btn btn-outline-secondary icon-button"
+                >
+                  <it-icon size="sm" name="pencil"></it-icon>
+                </button>
+                <button type="button"  class="btn btn-outline-secondary icon-button " (click)="eliminaBeneficiario(beneficiario.id)">
+                  <it-icon size="sm" name="delete"></it-icon>
+                </button>
+              </div>
+            </td>
+        </tr>
+      }
+    </tbody>
 </table>
+
+@if(!beneficiari.length){
+  <div class="text-center">
+    <h6>Nessun Beneficiario Trovato</h6>
+  </div>
+}

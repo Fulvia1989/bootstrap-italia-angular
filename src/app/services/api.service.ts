@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpContext, HttpHeaders, HttpParams} from '@angular/common/http';
 import { Observable, catchError, map, tap, throwError } from 'rxjs';
-import { Progetto } from '../shared/models/project.model';
+import { Beneficiari, Progetto } from '../shared/models/project.model';
 
 export interface HttpOptions {
   headers?: HttpHeaders;
@@ -71,6 +71,16 @@ export class ApiService {
     return this.get<any>(`${path}`).pipe(
       tap(()=> console.log('chiamata fondi')),
       map((res)=>res.lista),
+      catchError(err =>{
+        return throwError(()=> err || 'Server error');
+
+      })
+    )
+  }
+
+  getBeneficiari(idProgetto : string){
+    console.log(`chiamata beneficiari per progetto ${idProgetto}`)
+    return this.get<Beneficiari[]>('/beneficiari').pipe(
       catchError(err =>{
         return throwError(()=> err || 'Server error');
 

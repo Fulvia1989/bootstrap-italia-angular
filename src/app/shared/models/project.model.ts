@@ -35,6 +35,7 @@ export interface Media{
 
 
 export interface Beneficiari {
+  id:string,
   nome:string,
   ruolo: string,
   email:string,
