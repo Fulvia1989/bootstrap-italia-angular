@@ -225,8 +225,8 @@
         "beneficiari":[]
       }
     ],
-    "listaProgrammi":["PON14-20","PON15-21","PON15-22"],
-    "listaFondi":["Banca Italiana","Fondi Personali","Banca Estera"],
-    "listaBandi":["Bando 1","Bando 2","Bando 3"],
-    "listaAreeScientifiche":["Microbiologia","Robotica","Areospaziale"]
+    "listaProgrammi":{"lista":["Programma1","Programma2","Programma3"]},
+    "listaFondi":{"lista":["Banca Italiana","Fondi Personali","Banca Estera"]},
+    "listaBandi":{"lista":["Bando 1","Bando 2","Bando 3"]},
+    "listaAreeScientifiche":{"lista":["Microbiologia","Robotica","Areospaziale"]}
   }
