@@ -80,7 +80,7 @@ export class ApiService {
 
   getBeneficiari(idProgetto : string){
     console.log(`chiamata beneficiari per progetto ${idProgetto}`)
-    return this.get<Beneficiari[]>('/beneficiari').pipe(
+    return this.get<Beneficiari[]>('beneficiari').pipe(
       catchError(err =>{
         return throwError(()=> err || 'Server error');
 
