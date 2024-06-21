@@ -18,7 +18,7 @@
       <th scope="col">Telefono</th>
       <th scope="col">Contrbuto Realizzativo</th>
       <th scope="col">Informativa Privacy</th>
-      <th scope="col">Azioni</th>
+      <th scope="col" class="text-center">Azioni</th>
     </tr>
   </thead>
     <tbody>
@@ -31,11 +31,11 @@
             <td>{{beneficiario.contributo}}</td>
             <td class="text-center">{{beneficiario.privacy ? "Si" : "No"}}</td>
             <td>
-              <div class="buttons d-flex align-item-center justify-content-between">
-                <button type="button" class="btn btn-outline-secondary icon-button" itTooltip="Modifica" >
+              <div class="buttons d-flex justify-content-center">
+                <button type="button" class="btn btn-outline-secondary icon-button mx-1" itTooltip="Modifica" >
                   <it-icon size="sm" name="pencil"></it-icon>
                 </button>
-                <button type="button"  class="btn btn-outline-secondary icon-button " (click)="modaleElimina(beneficiario)" itTooltip="Elimina">
+                <button type="button"  class="btn btn-outline-secondary icon-button mx-1" (click)="modaleElimina(beneficiario)" itTooltip="Elimina">
                   <it-icon size="sm" name="delete"></it-icon>
                 </button>
               </div>

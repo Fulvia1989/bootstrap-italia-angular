@@ -277,5 +277,46 @@
         "contributo":"Conoscenza nella contruzione di veicoli areodinamici",
         "privacy":false
       }
-    ]
+    ],
+    "media":[
+          {
+            "id":"1",
+            "info":"prima immagine",
+            "stato":"accettato",
+            "tipo":"image",
+            "file":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAMSSURBVDjLfZNJaFwFHIe/N+ubdCb7UpK0FbOQRdvUi4cag1iC9NA2tGoKQgTxoIKeDFLqQTAHofZiL1aK4MVTT9WmoMGIJRLN0qpJmmQas00nmcky+7yZee//92QPEvzOH9/p9zNUlYNY/P5sNyKfqmhIRT7sHBidPcgz/htYGj1Xr6Lvq8h7NS0DlU5+h73VsYyKfqmOXHtmcOzxgYHlu+e9qvqmigyHmvpbGzov4hKHTHQKr99NLDxOYnN6TUWuqsjNnqF7+SeBpbvn+xG94q/q6W3ouIBZ1QZaxN5f5u/xEY50ncJVdoxCNs52eJp0fGFSHWfkubcnbxuLo+e+RmSotnXQMKufxUrvkIwv4BQzlLJRTFeRhiPtYO3jDh7FZYZIRZfYDk+T21/71qOOvNF++rpRSu+QiY4jxRT+XJxcKkpqI0Lr4Bd4A4cgu4pmwxipJWoaj1NRDTN3Vl71qEhWMSp8pp9Q9VHy8XnKqiqprAoQIAfWOjg+sCKQ3yC3NUlmdQLzqQuoI1mPipglKeDHi7eiDa8/hBWbQjIxvG4wco/ApRS3fiSdSmAHKlE3IKAiZR51xB1OjuKRPdqCr+DyHMKsP4ntC2Bau8jWDyRLaWwziOMPIbkSe1aOiFqo43hd6jh2ua+e5eTPjEU/IZK9B1rAE2widLidnBeKfhO7YJPOWfxSiPGdJ8G+4aCOqEdFXM3lfTT4Ovhpc5jfEreo8zZwIvAiQbMRW6Fg2cykk/zpZHAMeKn8ZbqSwkORovudgWN9md3Np4OhZjoOX6LOXctcepxH1hy27rOyvc2dxDZrYtEZ7OK12rOUJ4X1uVnsQnzCuP9Nr09FhtSR4eqW063Nx8/g8nj4I36Dh5kZ/lrcp85Xw+tNF3HnCkTmH5Devb+mop8jcvPJlGe+er5eRT5QR95tPHG+srHnDKVigtjGFEHHRXR+jt31iYyK3FCRa70fr0QOPNPv1092qyOXVeRSS99bRj62yuOFB9j5zVsqOvLClfDs/77xX3692t2vIh8h4lORz05dXr59kPcPXS/CRago2Z8AAAAASUVORK5CYII=",
+            "link":null,
+            "data":1691986373000,
+            "file_type":"image/png",
+            "fileName":"img_1.png",
+            "liberatorie":2,
+            "noLiberatorie":false
+          },
+          {
+            "id":"2",
+            "info":"super computer cineca",
+            "stato":"attesa",
+            "tipo":"video",
+            "file":"",
+            "data":1691986373000,
+            "link":"https://www.youtube.com/watch?v=NRm3zCPAlTQ",
+            "file_type":"video/avi",
+            "fileName":"video_1.avi",
+            "liberatorie":0,
+            "noLiberatorie":false
+          },
+          {
+            "id":"3",
+            "info":"test pdf",
+            "stato":"rifiutato",
+            "tipo":"doc",
+            "file":"",
+            "data":1691986373000,
+            "link":null,
+            "file_type":"application/pdf",
+            "fileName":"file_1.pdf",
+            "liberatorie":0,
+            "noLiberatorie":true
+          }
+        ]
   }

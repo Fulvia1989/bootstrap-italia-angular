@@ -1,0 +1,7 @@
+.file-link {
+  cursor: pointer;
+  color: var(--primary);
+  &:hover {
+    color: var(--secondary);
+  }
+}

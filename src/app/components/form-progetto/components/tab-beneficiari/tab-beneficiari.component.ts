@@ -1,8 +1,7 @@
 import { Component, Input, ViewChild } from '@angular/core';
-import { ItTableComponent } from 'design-angular-kit';
 import { ApiService } from '../../../../services/api.service';
 import { Beneficiari } from '../../../../shared/models/project.model';
-import { ItIconComponent,ItTooltipDirective } from 'design-angular-kit';
+import { ItTableComponent, ItIconComponent,ItTooltipDirective } from 'design-angular-kit';
 import { Modal } from 'bootstrap';
 
 
