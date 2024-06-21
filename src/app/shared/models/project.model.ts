@@ -7,7 +7,8 @@ export interface Progetto {
     area:string,
     output:string,
     finanziamento:number,
-    beneficiari:Beneficiari[]
+    beneficiari:Beneficiari[],
+    media?:Media[]
 }
 
 export interface ProgettoForm{

@@ -41,8 +41,10 @@ export class ApiService {
       .get<T>(`${this.baseUrl}/${resourceName}`, options)
   }
 
-  getProgetti(){
-    return this.get<Progetto[]>('/progetti').pipe(
+  getProgetti(id?:number|string){
+    let path = id? `/progetti/${id}` : '/progetti';
+
+    return this.get<any>(path).pipe(
       tap(()=> console.log('chiamata progetti')),
       catchError(err =>{
         return throwError(()=> err || 'Server error');

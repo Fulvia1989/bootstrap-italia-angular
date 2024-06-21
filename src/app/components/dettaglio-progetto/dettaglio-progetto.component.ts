@@ -36,9 +36,9 @@ export class DettaglioProgettoComponent {
     let id = this.route.snapshot.paramMap.get('idProgetto');
     this.idProgetto = id ? id : '';
     console.log(id);
-    this.apiService.getLista('progetti',this.idProgetto).subscribe(
+    this.apiService.getProgetti(this.idProgetto).subscribe(
       res=> {
-        res.media? this.mediaList = res.media : [];
+        res? this.mediaList = res.media : [];
       }
     )
 
