@@ -4,6 +4,7 @@
     <button class="btn btn-secondary ms-auto toolbar-button" type="button" 
     (click)="scaricaFile('informativa')"
     >
+    <it-icon name="download" aria-hidden="true" color="white"></it-icon>
       Scarica informativa
     </button>
   </div>
@@ -87,7 +88,7 @@
                   <td style="text-align: center;">{{progetto.finanziamento  |  currency:'EUR':'symbol':'4.2-2':'it-IT'}}</td>
                   <td>
                     <div class="buttons d-flex align-item-center justify-content-between">
-                      <button type="button" class="btn btn-outline-secondary icon-button"
+                      <button type="button" class="btn btn-outline-secondary icon-button me-2"
                       [isNotAdmin]="(userRole | role)"
                       [action]="'display-none'"
                       [disabled]="!hasAccepted"
@@ -96,7 +97,7 @@
                       >
                         <it-icon size="sm" name="pencil" aria-hidden="true"></it-icon>
                       </button>
-                      <button type="button"  class="btn btn-outline-secondary icon-button "
+                      <button type="button"  class="btn btn-outline-secondary icon-button me-2"
                       (click)="goTo('/progetti/dettaglio-progetto',progetto.id)"
                       [disabled]="!hasAccepted"
                       itTooltip="Media"
@@ -104,7 +105,7 @@
                       >
                         <it-icon size="sm" name="file-video" aria-hidden="true"></it-icon>
                       </button>
-                      <button type="button"  class="btn btn-outline-secondary icon-button "
+                      <button type="button"  class="btn btn-outline-secondary icon-button me-2"
                       (click)="scaricaFile('scheda')"
                       [disabled]="!hasAccepted"
                       itTooltip="Scheda progetto"
